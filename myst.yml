@@ -20,8 +20,9 @@ project:
 
     - title: Week 2 — Stress & Strain
       children:
-        - file: lectures/02_Stress_Strain_Lecture
-        - file: notebooks/02_Stress_Strain_Practice
+        - file: lectures/02_stress_strain
+        - file: demos/02_strain_rotation_demo
+        - file: notebooks/02_stress_strain_practice
 
     - title: Week 3 — Body Waves
       children:
