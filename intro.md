@@ -1,13 +1,21 @@
 # EPS 164: Introduction to Seismology
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Deploy Jupyter Book](https://github.com/UW-geophysics-edu/ess-412-512-intro2seismology/actions/workflows/deploy-book.yml/badge.svg)](https://github.com/UW-geophysics-edu/ess-412-512-intro2seismology/actions/workflows/deploy-book.yml)
+[![Deploy Book](https://github.com/amtseismo/EPS164/actions/workflows/deploy.yml/badge.svg)](https://github.com/amtseismo/EPS164/actions/workflows/deploy.yml)
 
 Computational labs and lectures for **EPS 164** Seismology at the University of California, Davis by Amanda Thomas. Materials supplement Peter Shearer's *Introduction to Seismology 3rd Edition* with hands-on Python exercises using real seismic data.
 
-**📖 Course site:** <https://uw-geophysics-edu.github.io/ess-412-512-intro2seismology/>
+**📖 Course site:** <https://amtseismo.github.io/EPS164/>
 
-## Course Modules
+```{figure} 3_toppled_train.png
+:scale: 100 %
+:alt: A Narrow Gauge train on the North Shore Railroad toppled on its side at Point Reyes Station, California, during the 1906 San Francisco earthquake on April 18. The 5:15 a.m. locomotive,, which was on a siding for fueling, was overturned by intense ground shaking. 
+
+A train thrown down by the earthquake at Point Reyes Station. The train was standing on a siding. Beyond are the buildings of the Point Reyes Hotel and, on the extreme right, the ruin of a stone store which was shaken down.
+
+```
+
+## Course Schedule
 
 | Module | Lecture | Labs | Topics |
 |--------|---------|------|--------|
@@ -22,39 +30,6 @@ Computational labs and lectures for **EPS 164** Seismology at the University of 
 
 Each notebook includes a Colab badge — click it to run in Google Colab with no local setup.
 
-## Repository Structure
-
-```
-notebooks/          Jupyter labs (01–07, named {Module}_{Topic}_{Type}.ipynb)
-lectures/           MyST Markdown lecture notes
-homework/           Assignments (midterm)
-solutions/          Instructor solutions
-scripts/            Validation & maintenance scripts
-references.bib      Shared BibTeX bibliography
-_toc.yml            Table of contents
-_config.yml         Jupyter Book configuration
-pixi.toml           Pixi tasks & dependencies
-environment.yml     Conda environment
-```
-
-## References & Citations
-
-All references live in [`references.bib`](references.bib). Cite in MyST Markdown with:
-
-```markdown
-{cite:t}`Shearer2009`            → Shearer (2009)
-{cite:p}`Shearer2009`            → (Shearer, 2009)
-{cite}`Shearer2009,AkiRichards2002`  → multiple
-```
-
-Add a bibliography block at the bottom of any page that uses citations:
-
-````markdown
-```{bibliography}
-:filter: docname in docnames
-```
-````
-
 ## Acknowledgments
 
 - Course lectures and notes include some material from ESS 412/512 taught by Marine Denolle at the University of Washington (thanks Marine!)
@@ -68,5 +43,7 @@ MIT — see [LICENSE](LICENSE).
 
 ## Contact
 
-**Instructor**: Amanda M. Thomas · EPS 164, University of California, Davis <br>
-**Repo**: <https://github.com/UW-geophysics-edu/ess-412-512-intro2seismology>
+**Instructor**: Amanda M. Thomas, University of California, Davis <br>
+**Email**: amthom@ucdavis.edu <br>
+**Website**: [amtseismo.github.io](https://amtseismo.github.io/) <br>
+**Repo**: <https://github.com/amtseismo/EPS164>

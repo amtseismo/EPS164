@@ -1,5 +1,13 @@
 # EPS 164: Introduction to Seismology
 
+```{figure} 3_toppled_train.png
+:scale: 100 %
+:alt: A Narrow Gauge train on the North Shore Railroad toppled on its side at Point Reyes Station, California, during the 1906 San Francisco earthquake on April 18. The 5:15 a.m. locomotive,, which was on a siding for fueling, was overturned by intense ground shaking. 
+
+A train thrown down by the earthquake at Point Reyes Station. The train was standing on a siding. Beyond are the buildings of the Point Reyes Hotel and, on the extreme right, the ruin of a stone store which was shaken down.
+
+```
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Deploy Book](https://github.com/amtseismo/EPS164/actions/workflows/deploy.yml/badge.svg)](https://github.com/amtseismo/EPS164/actions/workflows/deploy.yml)
 [![View Book](https://img.shields.io/badge/View-Book-blue)](https://amtseismo.github.io/EPS164/)
