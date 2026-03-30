@@ -1,0 +1,124 @@
+/* ==========================================================================
+   Link hover styling
+   ========================================================================== */
+
+a:hover,
+a.reference:hover,
+a.internal:hover,
+a.external:hover,
+.bd-sidebar-primary a:hover,
+.bd-sidebar-secondary a:hover,
+.navbar a:hover,
+.citation a:hover,
+.bibtex a:hover,
+dt a:hover {
+  color: cyan !important;
+}
+
+/* ==========================================================================
+   Tables — UC-style refresh
+   ========================================================================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 1.25rem 0;
+  font-size: 0.97rem;
+  line-height: 1.45;
+  border: 1px solid #d7dee8;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+/* Header */
+table th {
+  background-color: #003262;   /* UC-style deep blue */
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.7rem 0.9rem;
+  border-bottom: 2px solid #c4820e;  /* gold accent */
+}
+
+/* Body cells */
+table td {
+  padding: 0.68rem 0.9rem;
+  vertical-align: top;
+  text-align: left;
+  border: none;
+  border-top: 1px solid #e6ebf1;
+}
+
+/* Alternating row colors */
+table tbody tr:nth-child(even) {
+  background-color: #f7f9fc;
+}
+
+/* Hover state */
+table tbody tr:hover {
+  background-color: #fff6e5;   /* warm gold-tinted highlight */
+  transition: background-color 0.18s ease-in-out;
+}
+
+/* Slight emphasis for first column, if desired */
+table td:first-child {
+  font-weight: 500;
+}
+
+/* More specific fallback selectors for themed content areas */
+.prose table,
+.bd-article-container table,
+main table {
+  border: 1px solid #d7dee8;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.prose table th,
+.bd-article-container table th,
+main table th {
+  background-color: #003262 !important;
+  color: #ffffff !important;
+  border-bottom: 2px solid #c4820e !important;
+}
+
+.prose table tbody tr:nth-child(even),
+.bd-article-container table tbody tr:nth-child(even),
+main table tbody tr:nth-child(even) {
+  background-color: #f7f9fc !important;
+}
+
+.prose table tbody tr:hover,
+.bd-article-container table tbody tr:hover,
+main table tbody tr:hover {
+  background-color: #fff6e5 !important;
+}
+
+/* ==========================================================================
+   UC-themed blockquotes / callouts
+   ========================================================================== */
+
+blockquote {
+  margin: 1rem 0;
+  padding: 0.9rem 0.2rem;
+  background-color: #f7f9fc;
+  border-left: 5px solid #003262;   /* UC blue */
+  border-radius: 6px;
+  color: #1f2d3d;
+}
+
+blockquote p {
+  margin: 0.4rem 0;
+}
+
+blockquote strong:first-child {
+  color: #003262;
+}
+
+blockquote a img {
+  vertical-align: middle;
+  margin-top: 0.35rem;
+}

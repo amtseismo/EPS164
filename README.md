@@ -28,9 +28,9 @@ Rather than duplicating content here, the full course structure, modules, and na
 
 ## 🧭 How to use this repo
 
-- **Students:** Start with the course site (link above) and follow modules in order  
+- **Students:** Start with the course site (link above) 
 - **Instructors:** Use or adapt notebooks and lectures for your own courses  
-- **Researchers:** Reuse workflows for seismic data analysis and teaching  
+- **Researchers:** Reuse workflows for seismic data analysis and teaching 
 
 Most notebooks can be run:
 - locally (via conda/pixi environment), or  

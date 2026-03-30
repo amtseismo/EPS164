@@ -16,7 +16,7 @@ project:
     # --- Modules ---
     - title: Week 1 — Data Foundations
       children:
-        - file: notebooks/01_Data_Fourier_Practice
+        - file: lectures/01_data_fourier_practice
 
     - title: Week 2 — Stress & Strain
       children:
@@ -24,7 +24,10 @@ project:
         - file: demos/02_strain_rotation_demo
         - file: notebooks/02_stress_strain_practice
 
-    - title: Week 3 — Ray Theory
+    - title: Week 3 — The Wave Equation
+      children:
+		
+    - title: Week 4 — Ray Theory
       children:
         - file: lectures/ray-theory
         - file: notebooks/03a_Body_Waves_Theory

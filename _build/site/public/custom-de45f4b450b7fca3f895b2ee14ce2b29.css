@@ -1,7 +1,0 @@
-/* Target only the header logo: start broad, then refine */
-header img {
-  max-height: 120px !important;
-  height: auto !important;
-  width: auto !important;
-  outline: none !important;
-}

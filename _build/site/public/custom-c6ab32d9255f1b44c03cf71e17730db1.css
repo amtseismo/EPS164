@@ -1,4 +1,0 @@
-/* Temporary: make all H1s have a red border so we know CSS is working */
-h1 {
-  border: 3px solid red !important;
-}
