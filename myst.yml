@@ -16,8 +16,9 @@ project:
     # --- Modules ---
     - title: Week 1 — Data Foundations
       children:
-        - file: notebooks/01_data_fourier_practice
+        - file: lectures/01_seismic_instrumentation
         - file: demos/01_seismometer_response_demo
+        - file: notebooks/01_data_fourier_practice
 
     - title: Week 2 — Stress & Strain
       children:
