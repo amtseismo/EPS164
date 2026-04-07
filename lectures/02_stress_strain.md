@@ -1,6 +1,17 @@
 # Chapter 2 Lecture: Stress and Strain
 
+```{figure} ../figures/qrcode_47.png
+---
+name: 4/7 Quiz QR Code
+alt: 4/7 Quiz QR Code
+---
+```
+
 ## Purpose
+
+Scan the QR code for the supplemental resource. This version is visually cleaner
+because it avoids a caption block, which helps the text wrap more naturally.
+For QR codes, this is often the nicest-looking option.
 
 To describe how the Earth deforms and how forces are transmitted through it, we need a framework for:
 

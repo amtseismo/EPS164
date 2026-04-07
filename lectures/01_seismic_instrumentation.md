@@ -50,6 +50,15 @@ This relative motion can be recorded in different ways—displacement, velocity,
 
 ## Equation of Motion
 
+```{figure} ../figures/11_simple_inertial_seismometer.png
+---
+name: Schematic of a simple inertial seismometer.
+alt: Schematic of a simple inertial seismometer.
+---
+
+Schematic of a simple inertial seismometer
+```
+
 We can describe the motion of the suspended mass using Newton’s second law. If $ u(t) $ is the ground displacement and $ z(t) $ is the displacement of the mass relative to the ground, the system behaves as a **damped harmonic oscillator**:
 
 $$
@@ -60,35 +69,63 @@ This equation shows that the instrument is driven by **ground acceleration**, ev
 
 ---
 
-## Frequency Response
+## Frequency Response and Damping
 
-To understand how a seismometer modifies signals, it is useful to work in the frequency domain.
+To understand how a seismometer modifies signals, it is useful to work in the frequency domain. The response can be written as
 
-The response can be written as $ \Zeta(\omega) = A(\omega)e^{i\phi(\omega)} $ where:
+$$
+\Zeta(\omega) = A(\omega)e^{i\phi(\omega)}
+$$
+
+where:
 - $ A(\omega) $ describes how amplitudes are scaled  
 - $ \phi(\omega) $ describes phase shifts  
 
-**The key point is that both amplitude and phase depend on frequency.**
+**The key point is that both amplitude and phase depend on frequency**, so a seismometer acts as a **filter** that modifies ground motion in a predictable way.
 
-This means that a seismometer acts as a **filter**, altering the signal in a predictable way.
+Assuming harmonic motion,
 
+$$
+u(t) = U(\omega)e^{-i\omega t}, \quad z(t) = Z(\omega)e^{-i\omega t}
+$$
+
+the frequency response can be written as
+
+$$
+\frac{Z(\omega)}{U(\omega)}
+=
+\frac{\omega^2}{\omega_0^2 - \omega^2 - 2ih\omega_0\omega}
+$$
+
+where the dimensionless damping parameter is
+
+$$
+h = \frac{\epsilon}{\omega_0}
+$$
+
+The parameter $ h $ controls the damping:
+
+- $ h < 1 $: **underdamped** (resonance and ringing)  
+- $ h = 1 $: **critically damped** (stable, optimal response)  
+- $ h > 1 $: **overdamped** (sluggish response)  
+
+At high frequencies ($ \omega \gg \omega_0 $), the mass remains nearly stationary and the instrument tracks ground motion well. At low frequencies ($ \omega \ll \omega_0 $), the response decreases and the instrument becomes less sensitive. In practice, seismometers record only a limited frequency band.
+
+```{figure} ../figures/11_response_functions.png
+---
+name: Example response functions
+alt: Amplitude and phase response functions for a seismometer with different damping values h
+width: 500px
 ---
 
-## Damping and Frequency Dependence
-
-Recall that $ k $ is the spring stiffness and $ D $ is the viscous damping constant.  The strength of the damping relative to the spring is defined by $ h = \epsilon/\omega_0 $. The behavior of the instrument depends strongly on the damping parameter $ h $:
-
-- Near **critical damping**,  $ h \approx 1 $, the response is stable and well-behaved  
-- Lower damping produces oscillations (ringing)  
-- Higher damping slows the response  
-
-At high frequencies, the mass remains nearly stationary and the instrument tracks ground motion well.  At low frequencies, the response decreases and the instrument becomes less sensitive.  In practice, seismometers only record a limited frequency band.
+Amplitude and phase response functions for a seismometer with a 1 Hz natural frequency. The damping parameter $h$ controls the sharpness and stability of the response.
+```
 
 ---
 
 ## What Do Seismometers Measure?
 
-Instruments may record displacement, velocity, or acceleration. In the frequency domain, each time derivative introduces a factor of \( \omega \), so:
+Instruments may record displacement, velocity, or acceleration. In the frequency domain, each time derivative introduces a factor of $\omega$, so:
 
 - Acceleration emphasizes high frequencies  
 - Displacement emphasizes low frequencies  
@@ -97,20 +134,42 @@ At very long periods, even a displacement sensor effectively responds to **groun
 
 ---
 
-## Short- vs Long-Period Seismology
+## What Makes a Good Seismometer?
 
-Seismic observations are often divided into two bands, separated by the **microseism noise peak** near periods of 6–8 seconds.
+In practice, we would like a seismometer to record ground motion **faithfully**, without distorting the signal. This corresponds to having a **flat response** over a broad frequency band.
 
-- **Short-period (high frequency)** data are dominated by body waves and are used for earthquake location and arrival-time analysis.
+- A **flat amplitude response** means all frequencies are recorded with equal sensitivity  
+- A **linear phase response** means the waveform shape is preserved  
 
-- **Long-period (low frequency)** data emphasize surface waves and are particularly useful for studying earthquake sources and modeling waveforms.
+If the response is not flat, the instrument will:
 
+- amplify some frequencies (e.g., near resonance)  
+- suppress others (e.g., long-period signals)  
+- introduce phase shifts that distort waveforms  
+
+This is why real seismometers are designed to operate over a specific **frequency band** where the response is approximately flat.
+
+While, in principle, ground motion can be recovered from any well-characterized instrument via deconvolution, in practice nonlinear effects (clipping), noise amplification, and imperfect knowledge of the response make such inversion unstable—motivating the design of broadband, well-damped instruments with flat, robust responses.
+
+```{figure} ../figures/clipped_data.jpg
+---
+name: Example clipped data
+alt: Seismograms of the magnitude 4.8 earthquake that occurred in Yellowstone on March 30, 2014 with the top record being clipped and the bottom showing undistored waveforms
+width: 800px
+---
+
+Seismograms of the magnitude 4.8 earthquake that occurred in Yellowstone on March 30, 2014, as recorded by seismometers at station YNR near Norris Geyser Basin.  Top: Seismogram recorded on the accelerometer, which stayed on scale during the shaking.  Bottom: “Clipped” seismogram recorded on the broadband seismometer, which went off scale during the shaking.  Credit USGS.
+```
 
 ---
 
 ## Modern Seismographs
 
-Modern instruments are designed to record signals over a wide range of amplitudes and frequencies.
+Modern instruments are designed to record signals over a wide range of amplitudes and frequencies.  Modern broadband seismometers use **force-feedback systems** to extend the flat portion of the response far beyond what is possible with simple mechanical designs.
+
+- **Short-period instruments** (higher $ \omega_0 $) are sensitive to high-frequency body waves  
+- **Long-period instruments** (lower $ \omega_0 $) are sensitive to low-frequency signals like surface waves  
+- **Broadband instruments** are designed to have a flat response over a wide range of frequencies  
 
 A key concept is **dynamic range**, which describes the range between the smallest and largest signals that can be recorded. Instruments must be sensitive enough to detect weak signals, while avoiding clipping during strong ground motion.
 
@@ -129,6 +188,16 @@ Seismographs record **digital counts**, not ground motion directly. To interpret
 This is described by the **instrument response function**, which specifies how amplitude and phase vary with frequency.
 
 A seismogram is only meaningful if the instrument response is known.
+
+---
+
+## Short- vs Long-Period Seismology
+
+Seismic observations are often divided into two bands, separated by the **microseism noise peak** near periods of 6–8 seconds.
+
+- **Short-period (high frequency)** data are dominated by body waves and are used for earthquake location and arrival-time analysis.
+- **Long-period (low frequency)** data emphasize surface waves and are particularly useful for studying earthquake sources and modeling waveforms.
+
 
 ---
 
