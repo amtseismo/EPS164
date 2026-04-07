@@ -29,6 +29,7 @@ project:
 
     - title: Week 3 — The Wave Equation
       children:
+        - file: lectures/03_seismic_wave_equation
 		
     - title: Week 4 — Ray Theory
       children:
