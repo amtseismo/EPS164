@@ -1,18 +1,24 @@
 # Chapter 3 Lecture: The Seismic Wave Equation and Wave Properties
 
+```{figure} ../figures/qrcode_47.png
+---
+name: 4/12 Quiz QR Code
+alt: 4/12 Quiz QR Code
+---
+```
+
 ## Purpose
 
-In previous lectures, we described seismic waves using the displacement field:
+Using the framework of **stress** and **strain**, we now derive the equation that governs how seismic waves propagate through the Earth.
 
-$$
-\mathbf{u}(\mathbf{x}, t)
-$$
+This leads to the **seismic wave equation**, which describes how displacement evolves in space and time.
 
-But what governs how this displacement evolves in space and time?
+Two fundamental wave types emerge:
 
-**The answer is the wave equation.**
+- **P waves** → compressional (volume change)  
+- **S waves** → shear (shape change)  
 
-In this lecture, we introduce the seismic wave equation and show how it leads naturally to two fundamental types of motion: **P waves** and **S waves**. We then develop a simple description of wave propagation using **plane waves** and introduce key diagnostic quantities such as **velocity**, **wavelength**, and **slowness**.
+Their velocities depend on material properties $\lambda, \mu, \rho$
 
 ---
 
@@ -20,36 +26,78 @@ In this lecture, we introduce the seismic wave equation and show how it leads na
 
 By the end of this lecture, you should be able to:
 
-- Describe the physical meaning of the seismic wave equation  
-- Explain why elastic media support both P and S waves  
-- Distinguish between compressional and shear motion  
-- Define plane waves and their key properties  
-- Understand and interpret the slowness vector  
-- Relate mathematical descriptions of waves to observable quantities  
+- Explain how Newton’s laws lead to the equation of motion for a continuum
+- Interpret the divergence of stress as a force per unit volume
+- Understand how the*wave equation emerges from elasticity
+- Distinguish between P and S waves physically and mathematically
+- Interpret plane waves and slowness
+- Describe particle motion (polarization)
 
 ---
 
-## The Wave Equation
+## Equation of Motion
 
-A simple example of wave behavior is given by the 1D wave equation:
+To describe wave propagation, we apply **Newton’s second law** to a continuous medium:
 
 $$
-\frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}
+F = ma
 $$
 
-This equation describes waves that:
+Consider an infinitesimal cube of material. Forces act on its faces due to **stress**, and throughout its volume due to **body forces**.
 
-- propagate at a constant speed $c$  
-- maintain their shape as they move  
-- can travel in both directions  
+The key result is:
 
-The key idea is that **acceleration is proportional to curvature**: regions where the displacement is curved experience restoring forces that drive wave motion.
+$$
+F_i = \partial_j \tau_{ij} \, dV
+$$
+
+where
+
+$$
+\partial_j \tau_{ij}
+$$
+
+is the **divergence of the stress tensor**.  This represents **net force per unit volume**.  
+
+Including body forces and inertia:
+
+$$
+\rho \frac{\partial^2 u_i}{\partial t^2}
+=
+\partial_j \tau_{ij} + f_i
+$$
+
+This is the **equation of motion** (momentum equation).
+
+- $\rho \ddot{u}_i$ → inertia  
+- $\partial_j \tau_{ij}$ → internal forces from stress gradients  
+- $f_i$ → body forces  
+
+Note that stress itself does not cause motion—spatial variations in stress do. Seismic waves arise when stress gradients accelerate the medium.
+
+### Special Case (Wave Propagation)
+
+Away from sources:
+
+$$
+\rho \ddot{u}_i = \partial_j \tau_{ij}
+$$
 
 ---
 
 ## The Seismic Wave Equation
 
-In an elastic solid, the displacement field satisfies:
+To solve this, we relate stress to deformation using elasticity:
+
+$$
+\tau_{ij} = \lambda \delta_{ij} e_{kk} + 2\mu e_{ij}
+$$
+
+$$
+e_{ij} = \frac{1}{2}(\partial_i u_j + \partial_j u_i)
+$$
+
+Substituting into the equation of motion, and assuming the medium is homogenous (i.e. gradients in Lame parameters are zero) gives:
 
 $$
 \rho \ddot{\mathbf{u}} =
@@ -57,149 +105,152 @@ $$
 - \mu \nabla \times \nabla \times \mathbf{u}
 $$
 
-Each term has a clear physical meaning:
+There are two ways to deform a material, changing volume or changing shape.
 
-- $\rho \ddot{\mathbf{u}}$: inertia (mass × acceleration)  
-- $\nabla(\nabla \cdot \mathbf{u})$: compressional deformation  
-- $\nabla \times \nabla \times \mathbf{u}$: shear deformation  
+These appear directly in the equation:
 
-**Key insight:**
-
-- The equation naturally separates into two types of motion:
-  - **Compression (volume change)**  
-  - **Shear (shape change)**  
+- $\nabla(\nabla \cdot \mathbf{u})$ → compressional motion  
+- $\nabla \times \nabla \times \mathbf{u}$ → shear motion  
 
 ---
 
 ## P and S Waves
 
-These two types of motion correspond to two fundamental seismic waves.
+The wave equation naturally separates into two independent wave types.
 
-### P Waves (Compressional)
+**P waves:** have motion parallel to propagation and involve volume change  
+**S waves:** have motion perpendicular to propagation and involve purely shear  
 
-- Motion is **parallel** to the direction of propagation  
-- Involve **volume change** (compression and dilation)  
+We can isolate the P-wave in the wave equation by taking the divergence:
 
 $$
-\alpha = \sqrt{\frac{\lambda + 2\mu}{\rho}}
+\frac{\partial^2}{\partial t^2}(\nabla\cdot\mathbf{u})
+=
+\alpha^2 \nabla^2(\nabla\cdot\mathbf{u})
 $$
 
----
+$$
+\alpha = \sqrt{\frac{\lambda+2\mu}{\rho}}
+$$
 
-### S Waves (Shear)
+Volume changes propagate as waves → **P waves**
 
-- Motion is **perpendicular** to the direction of propagation  
-- Involve **shear deformation only** (no volume change)  
+Alternatively we can isolate the S-wave contribution by taking the curl:
+
+$$
+\frac{\partial^2 (\nabla \times \mathbf{u})}{\partial t^2}
+=
+\beta^2 \nabla^2 (\nabla \times \mathbf{u})
+$$
 
 $$
 \beta = \sqrt{\frac{\mu}{\rho}}
 $$
 
----
-
-### Key Observations
-
-- $\alpha > \beta$: P waves travel faster than S waves  
-- S waves depend on $\mu$, so they **do not propagate in fluids**  
-- P waves depend on both $\lambda$ and $\mu$
+Shear disturbances propagate → **S waves**
 
 ---
 
-## Plane Waves
+## Plane Waves and Slowness
 
-To describe wave propagation, we consider a simple solution: a **plane wave**.
-
-A harmonic plane wave can be written as:
+A plane wave is a solution of the wave equation in which the displacement varies only in the direction of wave propagation:
 
 $$
-\mathbf{u}(\mathbf{x}, t) = \mathbf{A} e^{i(\mathbf{k}\cdot\mathbf{x} - \omega t)}
+\mathbf{u}(x, t) = \mathbf{f}\left(t \pm \frac{x}{c}\right)
 $$
 
-where:
+$c$ is the velocity of the wave, $\mathbf{f}$ is any arbitrary function, and the wave is propagating in either the $+x$ or the $-x$ direction.  Displacement doenst vary with $y$ or $z$.
 
-- $\mathbf{A}$: amplitude  
-- $\mathbf{k}$: wavenumber vector  
-- $\omega$: angular frequency  
+### Slowness
+
+More generally, displacement at position vector x for a plane wave propagating in the unit direction $\hat{\mathbf{s}}$ may be expressed as $\mathbf{s} = \frac{\hat{\mathbf{s}}}{c}$ where $\mathbf{s}$ is the **slowness vector**.
+
+Then:
+
+$$
+\mathbf{u}(\mathbf{x}, t) = f(t - \mathbf{s} \cdot \mathbf{x})
+$$
+
+$\mathbf{s} \cdot \mathbf{x}$ represents **travel time**.
+
+### Harmonic Waves
+
+## Harmonic Waves
+
+Far from the source, the wavefront becomes nearly flat, and we can often approximate the seismic waves as a **plane wave**.  To simplify things further, we often consider waves of a single frequency. These are called **harmonic waves**, and can be written as:
+
+$$
+\mathbf{u}(\mathbf{x}, t) = \mathbf{A}(\omega) \, e^{-i\omega (t - \mathbf{s} \cdot \mathbf{x})} = \mathbf{A}(\omega) \, e^{-i(\omega t - \mathbf{k} \cdot \mathbf{x})}
+$$
+
+The wavenumber vector is related to wave speed by $\mathbf{k} = \omega\mathbf{s} = \frac{\omega}{c}\,\hat{\mathbf{s}}$ and the key wave properties are related in ways shown in the table below.
+
+**Key idea:** harmonic plane waves are the simplest solutions to the wave equation, and more complex seismic waves can be built by combining many of them.
+
+| Quantity            | Symbol | Definition / Relationship                          | Units            |
+|--------------------|--------|----------------------------------------------------|------------------|
+| Angular frequency  | $\omega$ | $\omega = 2\pi f = \dfrac{2\pi}{T}$              | s$^{-1}$         |
+| Frequency          | $f$      | $f = \dfrac{1}{T} = \dfrac{\omega}{2\pi}$        | s$^{-1}$ (Hz)    |
+| Period             | $T$      | $T = \dfrac{1}{f} = \dfrac{2\pi}{\omega}$        | s                |
+| Velocity           | $c$      | $c = \dfrac{\omega}{k} = f\lambda$               | m/s              |
+| Wavelength         | $\lambda$ | $\lambda = \dfrac{c}{f} = cT = \dfrac{2\pi}{k}$ | m                |
+| Wavenumber         | $k$      | $k = \dfrac{2\pi}{\lambda} = \dfrac{\omega}{c}$  | m$^{-1}$         |
+| Slowness           | $s$      | $s = \dfrac{1}{c}$                                | s/m              |
 
 ---
 
-### Interpretation
+## Polarization
 
-- $\mathbf{k}$ points in the **direction of propagation**  
-- $\omega$ controls how fast the wave oscillates in time  
-- The wave varies sinusoidally in both space and time  
+The **polarization** of a seismic wave describes the direction of particle motion relative to the direction of propagation.
 
-Surfaces of constant phase are planes perpendicular to $\mathbf{k}$.
+For a **P wave** traveling in the $x$-direction, displacement is given by $\mathbf{u} = \nabla \phi$ where $\phi$ is called a scalar potential.
 
----
+Because a plane wave varies only in the direction of propagation, we have $\partial_y = \partial_z = 0$ so the displacement becomes $u_x = \frac{\partial \phi}{\partial x}, \quad u_y = 0, \quad u_z = 0$.
 
-## Wave Properties
+**Key idea:** motion is entirely in the direction of propagation.
 
-$$
-\omega = 2\pi f, \quad
-\lambda = \frac{c}{f}, \quad
-k = \frac{2\pi}{\lambda} = \frac{\omega}{c}
-$$
+- Motion is **parallel** to propagation  
+- Called **longitudinal waves**  
+- $\nabla \cdot \mathbf{u} \neq 0$ → volume change  
+- $\nabla \times \mathbf{u} = 0$ → no rotation  
 
-- **Frequency** $f$: oscillations per second  
-- **Wavelength** $\lambda$: spatial scale of the wave  
-- **Velocity** $c$: links time and space variation  
+P waves involve compression and dilation of the material. Although often described as purely compressional, they also involve some shear deformation, which is why their speed depends on both $\lambda$ and $\mu$.
 
----
+For an **S wave** traveling in the $x$-direction, displacement is given by $\mathbf{u} = \nabla \times \boldsymbol{\psi}$ where $\psi$ is called a scalar potential.
 
-## Slowness
-
-It is often useful to define the **slowness vector**:
+Again assuming a plane wave ($\partial_y = \partial_z = 0$), this gives
 
 $$
-\mathbf{s} = \frac{\mathbf{k}}{\omega}
+u_x = 0, \quad
+u_y = -\frac{\partial \psi_z}{\partial x}, \quad
+u_z = \frac{\partial \psi_y}{\partial x}.
 $$
 
-- Direction: same as propagation direction  
-- Magnitude:
-$
-|\mathbf{s}| = \frac{1}{c}
-$
+**Key idea:** motion is entirely perpendicular to propagation.
 
----
+- Motion is **perpendicular** to propagation  
+- Called **transverse waves**  
+- $\nabla \cdot \mathbf{u} = 0$ → no volume change  
+- Pure **shear deformation**  
 
-### Interpretation
+S-wave motion can occur in any direction perpendicular to propagation.
 
-The dot product:
+Two common polarizations are:
 
-\[
-\mathbf{s} \cdot \mathbf{x}
-\]
-
-represents **travel time** from the origin.
-
-👉 This makes slowness especially useful for:
-- describing wave propagation  
-- interpreting travel times  
-- connecting to ray theory  
-
----
-
-## Particle Motion
-
-The direction of motion distinguishes P and S waves:
-
-- **P waves**: motion is parallel to propagation  
-- **S waves**: motion is perpendicular to propagation  
-
-S waves can have different polarizations:
-
-- **SV waves**: motion in the vertical plane  
+- **SV waves**: motion in the vertical plane containing the propagation direction  
 - **SH waves**: motion perpendicular to that plane  
 
 ---
 
-## Big Picture
+## Summary
 
-The seismic wave equation provides a unified framework for understanding wave propagation:
+Seismic waves arise from the balance between **inertia** and **stress gradients** in an elastic medium.
 
-- It describes how displacement evolves in space and time  
-- It predicts two fundamental types of waves (P and S)  
-- It links physical properties of Earth to observable wave behavior  
+The **seismic wave equation** shows that motion separates into two fundamental types:
 
-Using simple solutions like plane waves, we can define key quantities—such as velocity, wavelength, and slowness—that form the foundation of seismic analysis.
+- **P waves**: compressional (volume change)  
+- **S waves**: shear (shape change)  
+
+Plane waves provide simple solutions that describe how waves propagate through space and time, with **slowness** linking propagation to travel time.
+
+**Key idea:** seismic wavefields can be understood as combinations of P and S waves governed by the wave equation.
