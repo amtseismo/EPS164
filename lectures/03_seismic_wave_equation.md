@@ -2,8 +2,8 @@
 
 ```{figure} ../figures/qrcode_47.png
 ---
-name: 4/12 Quiz QR Code
-alt: 4/12 Quiz QR Code
+name: 4/14 Quiz QR Code
+alt: 4/14 Quiz QR Code
 ---
 ```
 
