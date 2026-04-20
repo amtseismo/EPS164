@@ -218,15 +218,7 @@ Travel-time curve T(X) and ray parameter. The slope of the tangent line at any p
 
 ---
 
-## What we deliberately did *not* do
-- No full derivation from the eikonal equation
-- No amplitudes, caustics, or head waves yet
-- No spherical geometry
-
----
-
 ## Looking ahead
 Next, we will:
 - Turn these ideas into **numerical ray tracing**
 - Explore when ray theory **fails** (LVZs, triplications)
-- Extend the ray parameter concept to the **spherical Earth**
