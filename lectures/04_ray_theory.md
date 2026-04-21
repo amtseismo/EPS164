@@ -25,12 +25,11 @@ This approach is widely used in:
 ## Learning Objectives
 
 By the end of this lecture, you should be able to:
-
-- Explain what a seismic ray represents  
-- Understand how wave propagation can be approximated geometrically  
-- Derive and interpret **Snell’s Law**  
-- Define **slowness** and the **ray parameter**  
-- Describe how rays propagate in layered and depth-dependent media  
+- Describe the relationship between wavefronts and rays
+- Define slowness and the ray parameter, and explain their physical meaning
+- Apply Snell’s Law to predict how rays bend across velocity contrasts
+- Explain how velocity structure controls ray paths and turning depth
+- Interpret travel-time curves in terms of ray geometry and Earth structure
 
 ---
 
