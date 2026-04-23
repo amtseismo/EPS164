@@ -36,6 +36,7 @@ project:
     - title: Week 4 — Travel Times
       children:
         - file: lectures/04_ray_theory
+        - file: demos/04_travel_time_curve_demo
         - file: notebooks/04_ray_theory_practice
 
 #    - title: Week 4 — Reflection Seismology
