@@ -466,9 +466,9 @@ The total travel time is the sum of horizontal and vertical contributions.
 Integrating along the ray:
 
 >Total travel time: 
-$$T(p) = pX(p) + \tau(p) = pX(p) + 2 \int_0^{z_p} \eta(z)\,dz$$
+$$T(p) = pX(p) + \tau(p)$$
 Delay time:
-$$\tau(p) = 2 \int_0^{z_p} \eta(z)\,dz$$
+$$\tau(p) = 2 \int_0^{z_p} \sqrt{u^2(z) - p^2} \, dz= 2 \int_0^{z_p} \eta(z)\, dz$$
 
 Physical meaning
 - $pX(p)$ → horizontal contribution  
@@ -524,7 +524,79 @@ The $\tau(p)$ function “unravels” triplications in travel time curves. Progr
 - Useful for ray tracing (TauP methods)  
 - Ideal for velocity inversion problems
 
----
+## Example: Computing $\tau(p)$
+
+Consider the same three-layer model with 3 km layer thicknesses and velocities 4, 6 and 8 km/s for the top, middle and bottom layers, respectively. What is the delay time for a ray with $p = 0.15$ s/km?
+
+### Model Summary
+
+| Layer | Depth Range (km) | Thickness (km) | Velocity (km/s) | Slowness $u$ (s/km) | $u_i > p$? |
+|------|------------------|----------------|------------------|----------------------|-------------|
+| 1    | 0–3              | 3              | 4                | 0.25                 | Yes         |
+| 2    | 3–6              | 3              | 6                | 0.167                | Yes         |
+| 3    | 6–9              | 3              | 8                | 0.125                | No          |
+
+Note that Ray **turns above layer 3**.
+
+### Computing delay time
+
+We use:
+
+$$
+\tau(p) = 2 \sum_i \sqrt{u_i^2 - p^2}\, \Delta z_i, \quad u_i > p
+$$
+
+Only layers 1 and 2 satisfy $u_i > p$, so:
+
+$$
+\tau(p) = 2 \left( z_1 \sqrt{u_1^2 - p^2} + z_2 \sqrt{u_2^2 - p^2} \right)
+$$
+
+Substituting values
+
+$$
+p = 0.15, \quad z_1 = z_2 = 3, \quad u_1 = 0.25, \quad u_2 = 0.167
+$$
+
+$$
+\tau(p) = 2 \left(
+3\sqrt{0.25^2 - 0.15^2} +
+3\sqrt{0.167^2 - 0.15^2}
+\right)
+$$
+
+$$
+\tau(p) = 2 \left(
+3\sqrt{0.040} +
+3\sqrt{0.0054}
+\right)
+$$
+
+$$
+\tau(p) \approx 1.64 \ \text{s}
+$$
+
+### Verification
+
+We use:
+
+$$
+\tau(p) = T(p) - pX(p)
+$$
+
+Substituting values from the previous example:
+
+$$
+T(p) = 4.17 \ \text{s}, \quad X(p) = 16.9 \ \text{km}
+$$
+
+$$
+\tau(p) = 4.17 - 0.15 \cdot 16.9
+$$
+
+$$
+\tau(p) \approx 1.64 \ \text{s}
+$$
 
 ## Low-Velocity Zones (LVZ): Ray Behavior
 
