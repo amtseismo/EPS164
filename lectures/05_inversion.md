@@ -35,7 +35,7 @@ By the end of this lecture, you should be able to:
 Shearer Chapter 5:
 - Section 5.1: One dimensional velocity inversion theory
 - Section 5.2: Straight Line Fitting
-- XXXX
+- Section 5.5: Three-dimensional Velocity Inversion
 
 ---
 
@@ -318,3 +318,153 @@ Solve:
 - triplications are **unraveled**  
 
 👉 foundation for modern inversion methods
+
+---
+
+## The Geophysical Forward Problem versus the Geophysical Inverse Problem
+
+Often in geophysics, we have to solve the **inverse problem**.
+
+The inverse problem is the estimations of parameters of a **model** of the Earth system from **data** or observations.
+
+The inverse problem is different from the forward problem.
+
+
+👉 **The Forward Problem** aka the direct problem or the forward model
+
+Given a model **m**, the forward problem computes the data **d** that would be observed.
+
+$$ 
+\mathbf{d} = F(\mathbf{m})
+$$
+
+where F maps from the model to data space as shown below:
+
+```{figure} ../figures/05_forward_problem.png
+---
+name: Forward Problem
+width: 400px
+---
+Visualization of the Forward Problem.
+```
+
+The forward problem has a solution that:
+
+1. exists.
+2. is unique.
+3. is stable (i.e. a small model change $\delta m$ gives a small data change $\delta d$).
+
+An example of the forward problem is calculting arrival times for seismic waves given a seismic velocity model.
+
+Forward problems are phyiscal problems that occur in nature. Inverse problems are mathematical.
+
+👉 **The Inverse Problem** 
+
+Given an observed set of data **d**, determine what model parameters **m** gave rise to that data.
+
+$$ 
+\mathbf{m} = F^{-1}(\mathbf{d})
+$$
+
+where $F^{-1}$ maps from the model to data space as shown below:
+
+```{figure} ../figures/05_inverse_problem.png
+---
+name: Inverse Problem
+width: 400px
+---
+Visualization of the Inverse Problem.
+```
+
+The inverse problem has a solution that:
+
+1. may or may not exist.
+2. is generally non-unique (i.e. an infinite number of acceptable models can be found to fit the data).
+3. is often unstable (i.e. a small change to the data $\delta d$ such as **noise** gives a large model change $\delta m$).
+
+An example of the inverse problem is solving for the Earth velocity structure, given an observed set of seismic arrival times.
+
+---
+
+## Three-dimensional Velocity Inversion
+
+Observed seismic travel times (**data**) are often different from predicted seismic travel times (**model**). We can compare the two using the **travel time *residual***.
+
+$$ 
+t_{resid} = t_{obs} - t_{pred}
+$$
+
+- If $t_{resid} < 0$, the velocity model we are using is too slow.
+- If $t_{resid} > 0$, the velocity model we are using is too fast.
+
+Residuals are often plotted on histograms showing that there is natural scatter in our tavel time data. 
+
+- If the average residual is zero, the data is well modeled using a 1D velocity model.
+- If the average residual is nonzero, as in the example below, we must reevaluate the velocity model and a 2D or 3D velocity model may become necessary to resolve lateral velocity perturbations. This process is called ***seismic tomography***.
+
+
+```{figure} ../figures/05_residuals.png
+---
+name: Travel time residuals.
+width: 400px
+---
+Residuals with a nonzero average residual, indicating the need to consider 2D or 3D lateral velocity perturbations.
+```
+
+___
+
+## Setting up the Tomography Problem
+
+In the tomographic problem we parameterize the velocity model as a number of blocks of uniform velocity perturbations. Rays travel through the velocity model from a source point to and end point.
+
+
+```{figure} ../figures/05_2D_tomo_problem.png
+---
+name: Ray Path and 2D Tomography Problem.
+width: 400px
+---
+An example ray path and cell numbering for a simple 2D tomography problem.
+```
+
+When you know the geometry of the seismic ray, the reference travel time through each block in the velocity model can be given by:
+
+$$
+\Delta t_0 = \Delta x u_0
+$$
+
+where $\Delta x$ is the ray path distance through the block and $u_0$ is the local reference slowness (model).
+
+Our observed travel time for this block is slightly different than the predicted travel time. We assume a slight perturbation to our velocity model such that the observed slowness of the block, $u$, is given by 
+
+$$
+u = u_0 (1+s)
+$$ 
+
+or the modeled slowness ($u_0$) plus some small fractional slowness perturbation, $s$.  
+
+The contribution of this slowness perturbation to the travel time residual is therefore:
+
+$$
+\Delta r = \Delta t - \Delta t_0 = \Delta x u_0 (1+s) - \Delta x u_0 = \Delta t_0 s
+$$
+
+If we sum all slowness perturbations along the entire ray path, the total travel time residual is:
+
+$$
+r = \sum_k b_k s_k 
+$$
+
+where $b_k$ is the ray travel time in the *k*th block and $s_k$ is the fractional slowness perturbation in each block.
+
+
+
+___
+
+## Limitations of the Tomography Problem
+
+1. Approximating the travel time residual as a sum of the slowness perturbations, $s$, in each block is only valid if the slowness perturbations are small i.e $s<<1$.
+
+
+
+
+
