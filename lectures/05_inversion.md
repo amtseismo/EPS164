@@ -454,8 +454,38 @@ $$
 r = \sum_k b_k s_k 
 $$
 
-where $b_k$ is the ray travel time in the *k*th block and $s_k$ is the fractional slowness perturbation in each block.
+where $b_k$ is the ray travel time in the *k*th block and $s_k$ is the fractional slowness perturbation in *k*th block.
 
+If we now consider the solution for many rays where the ray number is $i$, we get:
+
+$$
+r_i = \sum_{j=1}^m b_{ij} s_{j}
+$$
+
+where $m$ is the total number of model blocks. If a ray does not enter a block, we set that equal to 0. In this case, $s_k$ values are fractional related to the starting model i.e. an $s_k$ value of -0.01 means the solution is 1% slower than the starting model. 
+
+If we have $n$ number of residuals, this becomes a matrix problem:
+
+$$
+\begin{bmatrix}
+r_1 \\
+r_2 \\
+... \\
+r_n
+\end{bmatrix}
+= 
+\begin{bmatrix}
+b_{11} & b_{12} & ... \\
+b_{21} & b_{22} & ... \\
+... & ... & b_{nm} 
+\end{bmatrix}
+\begin{bmatrix}
+s_1 \\
+s_2 \\
+... \\
+r_m
+\end{bmatrix}
+$$
 
 
 ___
