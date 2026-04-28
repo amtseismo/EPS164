@@ -487,6 +487,19 @@ r_m
 \end{bmatrix}
 $$
 
+This can be written in the form:
+
+$$
+\mathbf{d} = \mathbf{G} \mathbf{m}
+$$
+
+where $\mathbf{d}$ is our data vector (i.e. our travel time residuals), $\mathbf{m}$ is our model vector (i.e. our slowness perturbations), and $\mathbf{G}$ is a linear operator (holding the travel times of each ray in each block) that predicts the model from the data. 
+
+___
+
+## Least-Squares Inversion
+
+Most rays will travel through a limited number of blocks. Typically, $\mathbf{G}$ will hold mostly zeros. If the number
 
 ___
 
