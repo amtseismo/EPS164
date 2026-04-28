@@ -35,7 +35,7 @@ By the end of this lecture, you should be able to:
 Shearer Chapter 5:
 - Section 5.1: One dimensional velocity inversion theory
 - Section 5.2: Straight Line Fitting
-- XXXX
+- Section 5.3: $\tau (p)$ (not 5.3.2 or 5.3.3)
 
 ---
 
