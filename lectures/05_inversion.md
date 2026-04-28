@@ -35,11 +35,8 @@ By the end of this lecture, you should be able to:
 Shearer Chapter 5:
 - Section 5.1: One dimensional velocity inversion theory
 - Section 5.2: Straight Line Fitting
-<<<<<<< HEAD
-- Section 5.5: Three-dimensional Velocity Inversion
-=======
 - Section 5.3: $\tau (p)$ (not 5.3.2 or 5.3.3)
->>>>>>> upstream/main
+- Section 5.5: Three-dimensional Velocity Inversion
 
 ---
 
@@ -562,7 +559,7 @@ $$
 where $\mathbf{L}$ is a finite difference approximation of the Lapacian over all model blocks. For example in 2D, the Laplacian of the *j*th block becomes:
 
 $$
-\bala_j^2 \simeq 0.25 (m_{left} + m_{right} + m_{up} + m_{down}) - m_j
+\nabla_j^2 \simeq 0.25 (m_{left} + m_{right} + m_{up} + m_{down}) - m_j
 $$
 
 where $m_{left}, m_{right}, m_{up}, m_{down}$ are the cells directly adjacent to cell $m_j$. This Lapacian minimizes:
