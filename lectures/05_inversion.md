@@ -506,6 +506,10 @@ For most tomographic problems, $\mathbf{G}^T\mathbf{G}$ is invariably singular o
 
 ## Regularization
 
+---
+
+## Damping
+
 A common approach to ill-conditioned least squares inversion is to use regularization using *damped least squares inversion*.  We therefore solve:
 
 $$
@@ -536,10 +540,34 @@ Increasing damping will add stability to the solution. However, a damped least s
 
 ## Smoothing
 
-Commonly, to 
+Commonly, to measure model roughness we compute a *Laplacian operator* $\nabla^2$. This is a difference operator over 2D or 3D block geometries. To minimize roughness, we solve for:
 
+$$
+\begin{bmatrix}
+\mathbf{d} \\
+0
+\end{bmatrix}
+= 
+\begin{bmatrix}
+\mathbf{G} \\
+\lambda \mathbf{L}
+\end{bmatrix}
+\mathbf{m}
+$$
 
-Typically, $\lambda$ and smoothness values are selected to miminimize the L-curve:
+where $\mathbf{L}$ is a finite difference approximation of the Lapacian over all model blocks. For example in 2D, the Laplacian of the *j*th block becomes:
+
+$$
+\bala_j^2 \simeq 0.25 (m_{left} + m_{right} + m_{up} + m_{down}) - m_j
+$$
+
+where $m_{left}, m_{right}, m_{up}, m_{down}$ are the cells directly adjacent to cell $m_j$. This Lapacian minimizes:
+
+$$
+|| \mathbf{G}\mathbf{m} - \mathbf{d} ||^2 + \lambda^2 ||L\mathbf{m}||^2
+$$
+
+Where $\lambda$ therefore controls the trade-off between misfit and model roughness. A model can therefore be selected that is smooth but does not minimize variance. Blocks are not sampled directly by ray paths but rather interpolated from nearby cells. Typically, $\lambda$ is selected to miminimize the L-curve:
 
 ```{figure} ../figures/05_L_curve.png
 ---
@@ -548,12 +576,21 @@ width: 400px
 ---
 The L-Curve is the statistical model used to select the $\lambda$ value such that you minimize both misfit and model variance.
 ```
+
+If we select a very smooth model, we don't care about fitting the data. Inversely, mimimizing data misfit might cause huge increases to model roughness. It is typically pointless to try to fit data perfectly, because all data has inherent error or noise.
 ___
+
+The ideal type of regularization, whether damping or smoothing, will depend on the exact inversion problem. Both methods have advantages and disadvantages.
+
+For example, one should distrust a damped least-squares solution when there is significant fine velocity structure at the scale-length of the block dimensions.  Minimum roughness models are suspect when there are large-amplitude anomalies in regions with little data.
+
+---
 
 ## Limitations of the Tomography Problem
 
 1. Approximating the travel time residual as a sum of the slowness perturbations, $s$, in each block is only valid if the slowness perturbations are small i.e $s<<1$.
-2. Tomography models are highly biased by ray coverage. Typically rays in a problem will appear at only some geometries, covering only a small percentage of the model blocks. This leads to biases in the solution along these ray paths:
+2. Conventional linear algebra methods break down for large models where $m$ is very large. This is particularly true for 3D problems. Sparse matrix calculations are therefore necessary for large problems.
+3. Seimsic tomography works best for a large number of ray geometries in each cells with varied ray paths. This is not often the case. Tomography models are highly biased by ray coverage. Typically rays in a problem will appear at only some geometries, covering only a small percentage of the model blocks. This leads to biases in the solution along these ray paths:
 
 ```{figure} ../figures/05_ray_geometry.png
 ---
