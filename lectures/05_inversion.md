@@ -527,7 +527,19 @@ $$
 || \mathbf{G}\mathbf{m} - \mathbf{d} ||^2 + \lambda^2 ||\mathbf{m}||^2
 $$
 
-where the first term is the misfit to the data and the second term is the variance of the model. $\lambda$ controls the trade-off between misfit and model variance. Typically, a $\lambda$ value is selected to miminimize the L-curve:
+where the first term is the misfit to the data and the second term is the variance of the model. $\lambda$ controls the trade-off between misfit and model variance. 
+
+
+Increasing damping will add stability to the solution. However, a damped least squares solution will not increase model smoothness. Model perturbations in adjacent blocks can still be quite significant.
+
+---
+
+## Smoothing
+
+Commonly, to 
+
+
+Typically, $\lambda$ and smoothness values are selected to miminimize the L-curve:
 
 ```{figure} ../figures/05_L_curve.png
 ---
@@ -536,12 +548,20 @@ width: 400px
 ---
 The L-Curve is the statistical model used to select the $\lambda$ value such that you minimize both misfit and model variance.
 ```
-
 ___
 
 ## Limitations of the Tomography Problem
 
 1. Approximating the travel time residual as a sum of the slowness perturbations, $s$, in each block is only valid if the slowness perturbations are small i.e $s<<1$.
+2. Tomography models are highly biased by ray coverage. Typically rays in a problem will appear at only some geometries, covering only a small percentage of the model blocks. This leads to biases in the solution along these ray paths:
+
+```{figure} ../figures/05_ray_geometry.png
+---
+name: Ray Angle Biases.
+width: 400px
+---
+Ray angles in tomographic problems are typically limited. Therefore, resolution in of velocity anomalies is limited parallel to the ray path.
+```
 
 
 
