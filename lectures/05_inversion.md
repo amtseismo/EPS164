@@ -559,7 +559,7 @@ $$
 where $\mathbf{L}$ is a finite difference approximation of the Lapacian over all model blocks. For example in 2D, the Laplacian of the *j*th block becomes:
 
 $$
-\bala_j^2 \simeq 0.25 (m_{left} + m_{right} + m_{up} + m_{down}) - m_j
+\nabla_j^2 \simeq 0.25 (m_{left} + m_{right} + m_{up} + m_{down}) - m_j
 $$
 
 where $m_{left}, m_{right}, m_{up}, m_{down}$ are the cells directly adjacent to cell $m_j$. This Lapacian minimizes:
