@@ -42,6 +42,7 @@ project:
     - title: Week 5 — Inversion
       children:
         - file: lectures/05_inversion
+        - file: demos/05_Resolution_of_the_Tomography_Problem
 		
 #    - title: Week 4 — Reflection Seismology
 #      children:
