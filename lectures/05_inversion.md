@@ -601,6 +601,14 @@ Ray angles in tomographic problems are typically limited. Therefore, resolution 
 
 ## Earthquake Location
 
+```{figure} ../figures/enhanced_earthquake_catalogs.png
+---
+name: PNSN Enhanced Catalog.
+width: 800px
+---
+Comparison of the PNSN catalog to a ML enhanced earthquake catalog.
+```
+
 Earthquake location is one of the most common and important problems in seismology.  It involves determining the **origin time and location** of an earthquake using seismic travel times.
 
 An earthquake is described by four parameters:
