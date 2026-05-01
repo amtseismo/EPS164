@@ -34,7 +34,7 @@ Each notebook includes a Colab badge — click it to run in Google Colab with no
 
 ## Acknowledgments
 
-- Course lectures and notes include some material from ESS 412/512 taught by Marine Denolle at the University of Washington (thanks Marine!)
+- Course lectures and notes include some material from ESS 412/512 taught by Marine Denolle at the University of Washington (thanks Marine!) and Weiqiang Zhu at UC Berkeley (thanks Weiqiang!)
 - Course structure based on Peter Shearer's *Introduction to Seismology* (Cambridge University Press)
 - Built with [ObsPy](https://obspy.org/), [Jupyter Book](https://jupyterbook.org/), and [sphinxcontrib-bibtex](https://sphinxcontrib-bibtex.readthedocs.io/)
 - Seismic data from [Earthscope Consortium](https://www.earthscope.org/) via FDSN web services

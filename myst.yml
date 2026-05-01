@@ -45,6 +45,10 @@ project:
         - file: demos/05_Resolution_of_the_Tomography_Problem
         - file: notebooks/05_earthquake_location
 				
+    - title: Week 6 — Amplitudes
+      children:
+        - file: lectures/06_amplitudes
+		
 #    - title: Week 4 — Reflection Seismology
 #      children:
 #        - file: notebooks/04a_Reflection_Transmission_Theory
