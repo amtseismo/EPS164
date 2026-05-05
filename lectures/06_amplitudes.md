@@ -346,3 +346,138 @@ Interpretation:
 - Transmitted wave amplitude: **0.95**
 
 ---
+
+## SH vs P–SV Reflection and Transmission
+
+At a velocity interface, waves are reflected and transmitted.
+
+- SH waves produce only two scattered waves: a reflected SH wave and a transmitted SH wave  
+- No mode conversion occurs → amplitudes are relatively simple to compute  
+- The P–SV system produces four scattered waves: reflected P and SV waves, and transmitted P and SV waves  
+- Mode conversion occurs at interfaces → a P-wave can generate both P and SV waves   
+
+The algebra for P–SV reflection and transmission coefficients is significantly more complex.  In practice, these coefficients are typically computed numerically and can be found in Appendix D of Shearer. 
+
+---
+
+## Dependence on Ray Angle
+
+Reflection and transmission coefficients depend on **angle of incidence**.  Consider an SH-wave incident on the Moho so that velocity and density increase across the boundary and there is an impedance contrast $\approx$ 30%.  
+
+Near-vertical incidence ($\theta \approx 0^\circ$)
+
+- reflected amplitude is small  
+- transmitted amplitude is large  
+- reflected wave undergoes **polarity reversal**  
+
+👉 Vertical incidence behavior is controlled mainly by **impedance contrast**
+
+```{figure} ../figures/06_ray_angle.png
+---
+name: Ray Angle
+alt: Ray Angles
+width: 600px
+---
+Reflection and transmission coefficients versus ray angle for a downgoing SH-wave incident on the Moho. In the top plots, the real part of the reflection coefficient is shown with a thin solid line, the imaginary part with a dashed line, and the magnitude with a heavy line. The lower plots show the change in the phase angle for a harmonic wave. The sign of the imaginary part of the reflection coefficients plotted here assumes that a phase shift of −90$\circ$ represents a $\pi$/2 phase advance.
+```
+
+---
+
+## Behavior at Increasing Angles
+
+As ray angle increases transmitted amplitude **increases** reflected amplitude **decreases**. 
+
+At a specific angle ($\approx49^\circ $ in this example) reflected amplitude = 0 and transmitted amplitude = 1. No reflection despite impedance contrast.  
+
+- near-horizontal rays carry less **vertical energy flux**  
+- amplitudes must increase to conserve energy  
+
+👉 Geometry (ray angle) strongly controls amplitude
+
+---
+
+## Critical Angle and Beyond
+
+At the critical angle ($\approx60^\circ $ in this example):
+- transmitted ray becomes **horizontal**  
+- transmitted amplitude is large  
+- reflected amplitude ≈ 1  
+
+Beyond the Critical Angle:
+- no transmitted energy into lower layer  
+- total internal reflection occurs   
+
+---
+
+## Attenuation
+
+So far, we have considered amplitude changes due to geometrical spreading, reflection, and transmission  
+
+A third factor is **attenuation** loss of energy due to **internal friction** energy is converted to heat  
+
+Types of attenuation:
+- **Intrinsic attenuation** reflects true energy loss  
+- **Scattering attenuation** reflects energy redistribution  
+
+In this section, attenuation refers to **intrinsic attenuation**
+
+---
+
+## The Quality Factor (Q)
+
+The strength of attenuation is described by 
+
+> Quality factor
+$$
+\frac{1}{Q(\omega)} = -\frac{\Delta E}{2\pi E}
+$$
+
+where:
+- $E$ = stored energy  
+- $\Delta E$ = energy lost per cycle  
+
+Note:
+- high $Q$ → weak attenuation  
+- low $Q$ → strong attenuation  
+
+Even small energy losses per cycle → large amplitude reduction over distance
+
+---
+
+## Amplitude Decay with Distance
+
+For harmonic waves $A(x) = A_0 e^{-\omega x / (2cQ)}$
+
+Note:
+- higher frequency → stronger attenuation  
+- longer distance → more decay  
+- lower $Q$ → more attenuation  
+
+---
+
+## Example: Computing Intrinsic Attenuation 
+
+A wave propagates for 50 km through a material with velocity 6 km/s and $Q = 100$. What is the amplitude reduction for a wave at 1 Hz and at 10 Hz? 
+
+Using $A(x) = A_0 e^{-\omega x / (2cQ)}, \quad \omega = 2\pi f$
+
+
+For
+- $f = 1 \,\text{Hz}$:
+
+$$
+A = A_0 e^{-2\pi \cdot 50 / (2 \cdot 6 \cdot 100)} \approx 0.77\, A_0
+$$
+
+- $f = 10 \,\text{Hz}$:
+
+$$
+A = A_0 e^{-20\pi \cdot 50 / (2 \cdot 6 \cdot 100)} \approx 0.073\, A_0
+$$
+
+Note:
+- 1 Hz → retains **77%** of amplitude  
+- 10 Hz → retains **7.3%** of amplitude  
+
+👉 High-frequency waves attenuate much more rapidly
+
