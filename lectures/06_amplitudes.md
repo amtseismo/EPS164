@@ -364,7 +364,7 @@ The algebra for P–SV reflection and transmission coefficients is significantly
 
 Reflection and transmission coefficients depend on **angle of incidence**.  Consider an SH-wave incident on the Moho so that velocity and density increase across the boundary and there is an impedance contrast $\approx$ 30%.  
 
-**Near-vertical incidence ($\theta \approx 0^\circ$):**\
+**Near-vertical incidence ($\theta \approx 0^\circ $):**
 
 - Reflected amplitude is small (-0.146) 
 - Transmitted amplitude is large (0.854)
@@ -385,7 +385,7 @@ Reflection and transmission coefficients versus ray angle for a downgoing SH-wav
 
 - Amplitude and phase don't change much and are similar to the $\theta \approx 0^\circ$ case
 
-**Intermediate incidence ($\theta \gt 30^\circ and \theta \le 49^\circ)**
+**Intermediate incidence ($\theta \gt 30^\circ$ and $\theta \le 49^\circ$)**
 
 - As the incident ray becomes more horizontal, the amplitude of the transmitted wave increases and the reflected amplitude approaches zero. 
 
