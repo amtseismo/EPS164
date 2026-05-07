@@ -364,11 +364,11 @@ The algebra for P–SV reflection and transmission coefficients is significantly
 
 Reflection and transmission coefficients depend on **angle of incidence**.  Consider an SH-wave incident on the Moho so that velocity and density increase across the boundary and there is an impedance contrast $\approx$ 30%.  
 
-Near-vertical incidence ($\theta \approx 0^\circ$)
+**Near-vertical incidence ($\theta \approx 0^\circ$):**\
 
-- reflected amplitude is small  
-- transmitted amplitude is large  
-- reflected wave undergoes **polarity reversal**  
+- Reflected amplitude is small (-0.146) 
+- Transmitted amplitude is large (0.854)
+- Reflected wave undergoes **polarity reversal**  
 
 👉 Vertical incidence behavior is controlled mainly by **impedance contrast**
 
@@ -381,31 +381,71 @@ width: 600px
 Reflection and transmission coefficients versus ray angle for a downgoing SH-wave incident on the Moho. In the top plots, the real part of the reflection coefficient is shown with a thin solid line, the imaginary part with a dashed line, and the magnitude with a heavy line. The lower plots show the change in the phase angle for a harmonic wave. The sign of the imaginary part of the reflection coefficients plotted here assumes that a phase shift of −90$\circ$ represents a $\pi$/2 phase advance.
 ```
 
+**Small incidence ($\theta \lt 30^\circ$):**
+
+- Amplitude and phase don't change much and are similar to the $\theta \approx 0^\circ$ case
+
+**Intermediate incidence ($\theta \gt 30^\circ and \theta \le 49^\circ)**
+
+- As the incident ray becomes more horizontal, the amplitude of the transmitted wave increases and the reflected amplitude approaches zero. 
+
+**At $\approx49^\circ$ (in this example)**:
+
+- The reflected amplitude is zero - despite crossing a significant change in density and velocity, there is no reflected wave for an incident ray at this angle.
+- Transmitted amplitude is one 
+
+**Beyond $\approx49^\circ$ (in this example)**:
+
+- The reflected wave is now positive in amplitude (no phase shift) and grows as $\theta$ increases in order to balance the displacements on both sides of the Moho. 
+- The amplitude of the transmitted wave continues to increase. 
+- This amplitude increase in the transmitted wave results from the increasingly horizontal orientation of the transmitted ray. 
+- Near-horizontal rays carry little energy across the interface vertically so to conserve vertical energy flux, amplitudes must increase
+
 ---
 
-## Behavior at Increasing Angles
+## Critical Angle
 
-As ray angle increases transmitted amplitude **increases** reflected amplitude **decreases**. 
+**At the critical angle ($\approx60^\circ $ in this example):**
 
-At a specific angle ($\approx49^\circ $ in this example) reflected amplitude = 0 and transmitted amplitude = 1. No reflection despite impedance contrast.  
-
-- near-horizontal rays carry less **vertical energy flux**  
-- amplitudes must increase to conserve energy  
-
-👉 Geometry (ray angle) strongly controls amplitude
-
----
-
-## Critical Angle and Beyond
-
-At the critical angle ($\approx60^\circ $ in this example):
+- reflected amplitude is 1  
 - transmitted ray becomes **horizontal**  
-- transmitted amplitude is large  
-- reflected amplitude ≈ 1  
+- transmitted amplitude is 2
+- $u = p$
 
-Beyond the Critical Angle:
-- no transmitted energy into lower layer  
-- total internal reflection occurs   
+---
+
+## Head Waves
+
+At the critical angle $ u = p$ the transmitted wave travels horizontally along the interface. This energy continuously radiates back upward into the upper layer, producing a **head wave**.
+
+Examples:
+- Pn → head wave traveling in the upper mantle
+- Sn → mantle S-wave head wave
+
+👉 Head waves are often the first arrivals at regional distances because they travel in faster material below the Moho.
+
+[![Watch the video](../figures/06_head_wave.mp4)](../figures/06_head_wave.mp4)
+
+```{figure} ../figures/06_sn.png
+---
+name: Sn
+alt: Sn
+width: 600px
+---
+The different arrivals for S-waves in the crust and upper mantle. Note Sg is a direct crustal S-wave, SmS is an S-wave reflected from the Moho, and Sn is a S-wave that is refracted along the top of the mantle.
+```
+
+---
+
+## Beyond Critical
+
+**Beyond the Critical Angle:**
+
+- $p \gt u$ and vertical slowness becomes imaginary
+- Total internal reflection occurs (no transmission, all reflection) 
+- Beyond the critical angle, the transmitted wave no longer propagates energy downward.
+- phase is no longer $0^\circ$ or $180^\circ$ but rather something else, so pulse shape becomes distorted
+- Transmitted wave is evanescent (i.e. it does not propagate energy away from the interface, but instead their amplitude decays exponentially with distance from it).
 
 ---
 
@@ -413,7 +453,9 @@ Beyond the Critical Angle:
 
 So far, we have considered amplitude changes due to geometrical spreading, reflection, and transmission  
 
-A third factor is **attenuation** loss of energy due to **internal friction** energy is converted to heat  
+A third factor is **attenuation**:
+- energy is lost due to internal friction
+- seismic energy is converted to heat 
 
 Types of attenuation:
 - **Intrinsic attenuation** reflects true energy loss  
