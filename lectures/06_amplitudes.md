@@ -9,22 +9,28 @@ alt: 4/28 Quiz QR Code
 
 ## Purpose
 
-In previous chapters, XXXX
+In previous chapters, we focused mainly on travel times and velocity structure. In this chapter, we shift to **seismic amplitudes** and ask why some waves are larger than others, why amplitudes vary with distance and station location, and how amplitude changes can be used to infer information about the Earth.
 
-In this chapter, we XXX:
+In this chapter, we will:
 
-- XXX
-- XXX
-- XXX
+- explain the physical origin of seismic wave energy and energy flux
+- describe how geometrical spreading affects amplitude with distance
+- understand how reflection, transmission, and impedance contrasts modify amplitudes at interfaces
+- introduce the dependence of amplitudes on ray angle, critical angle, and head waves
+- describe how intrinsic attenuation reduces amplitudes, especially at high frequency
 
 ---
 
 ## Learning Objectives
 
 By the end of this lecture, you should be able to:
-- XXXX
-- XXXX
-- XXXX
+
+- explain the difference between energy density and energy flux
+- derive how amplitude changes due to geometrical spreading for body waves and surface waves
+- interpret how impedance contrasts control reflected and transmitted amplitudes
+- explain why reflection and transmission coefficients depend on ray angle
+- describe what happens at the critical angle and how head waves form
+- define the quality factor $Q$ and explain how attenuation affects seismic amplitudes
 
 ---
 
