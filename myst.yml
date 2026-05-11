@@ -49,6 +49,10 @@ project:
       children:
         - file: lectures/06_amplitudes
 		
+    - title: Week 7 — Surface Waves and Ambient Noise
+      children:
+        - file: lectures/07_surface_waves
+		
 #    - title: Week 4 — Reflection Seismology
 #      children:
 #        - file: notebooks/04a_Reflection_Transmission_Theory
