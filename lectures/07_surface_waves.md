@@ -120,7 +120,7 @@ Rayleigh Waves:
 - coupled P-SV motion  
 - motion resembles ocean waves
 
-```{figure} ../figures/08_seismic_waves.jpg
+```{figure} ../figures/07_seismic_waves.jpg
 ---
 width: 800px
 ---
@@ -172,14 +172,14 @@ The resulting waveform consists of:
 - modulated by a slowly varying envelope
 - called "beating" in acoustics
 
-```{figure} ../figures/08_beating.gif
+```{figure} ../figures/07_beating.gif
 ---
 width: 400px
 ---
 When adding two waves with close frequencies (and wavenumbers), the resulting wave exhibits beats. The red bullet (on a node of the beat envelope) is propagating with the group velocity. The yellow bullet (starting at the same position than the red one) is propagating with the phase velocity. Here the phase velocity is faster than the group one (and motions are in the same direction).
 ```
 
-```{figure} ../figures/08_group_demo.gif
+```{figure} ../figures/07_group_demo.gif
 ---
 width: 800px
 ---
@@ -217,7 +217,7 @@ Love waves can be thought of as trapped SH waves undergoing repeated reflections
 
 Most reflected SH waves interfere destructively. Love waves form only at frequencies where the reflected waves interfere constructively.
 
-```{figure} ../figures/08_reflections.png
+```{figure} ../figures/07_reflections.png
 ---
 width: 500px
 ---
@@ -336,7 +336,7 @@ The **group velocity** is:
 
 For dispersive waves, phase and group velocity are different.
 
-```{figure} ../figures/08_dispersion_curve.png
+```{figure} ../figures/07_dispersion_curve.png
 ---
 width: 600px
 ---
@@ -359,7 +359,7 @@ Surface-wave velocity depends on period because different periods sample differe
 - sample faster lower crust and upper mantle
 - faster velocities
 
-```{figure} ../figures/08_love_rayleigh_dispersion.png
+```{figure} ../figures/07_love_rayleigh_dispersion.png
 ---
 width: 800px
 ---
@@ -384,7 +384,7 @@ Because they are confined to the surface of a sphere:
 - geometrical spreading is weaker than for body waves
 - amplitudes remain large at long distances
 
-```{figure} ../figures/08_kamchatka_surface_waves.mp4
+```{figure} ../figures/07_kamchatka_surface_waves.mp4
 ---
 width: 800px
 ---
@@ -405,7 +405,7 @@ A later arrival travels the long way around Earth through the antipode:
 - Love wave → $G_2$
 - Rayleigh wave → $R_2$
 
-```{figure} ../figures/08_surface_wave_orbits.png
+```{figure} ../figures/07_surface_wave_orbits.png
 ---
 width: 300px
 ---
@@ -416,7 +416,7 @@ Minor-arc and major-arc surface-wave propagation.  Ray paths for the first three
 
 ## Surface Waves Continue Orbiting Earth
 
-```{figure} ../figures/08_r1_r2.png
+```{figure} ../figures/07_r1_r2.png
 ---
 width: 800px
 ---
@@ -430,7 +430,7 @@ Surface waves continue traveling around the globe after passing the receiver:
 
 👉 Large earthquakes can generate surface-wave arrivals for many hours.
 
-```{figure} ../figures/08_sumatra_poster.png
+```{figure} ../figures/07_sumatra_poster.png
 ---
 width: 800px
 ---
@@ -455,7 +455,7 @@ Phase velocity $c = \frac{\omega}{k}$:
 
 In dispersive media: $U \neq c$ so wave packets spread and change shape during propagation.
 
-```{figure} ../figures/08_measuring_velocity.png
+```{figure} ../figures/07_measuring_velocity.png
 ---
 width: 600px
 ---
@@ -466,7 +466,7 @@ Example of group and phase velocity.
 
 ## Group and Phase Velocity Example
 
-```{figure} ../figures/08_record_section.png
+```{figure} ../figures/07_record_section.png
 ---
 width: 600px
 ---
@@ -488,7 +488,7 @@ Ambient noise tomography involves seismic “noise” to image Earth structure
 - Retrieval of empirical Green’s functions
 - Surface-wave tomography without earthquakes!
 
-```{figure} ../figures/08_ant.png
+```{figure} ../figures/07_ant.png
 ---
 width: 800px
 ---
@@ -506,7 +506,7 @@ Example of group and phase velocity.
  - station-to-station measurements
  - imaging even without earthquakes
  
-```{figure} ../figures/08_ta.png
+```{figure} ../figures/07_ta.png
 ---
 width: 800px
 ---
@@ -572,7 +572,7 @@ Random noise averages away, propagation physics remains.
 
  Ambient noise creates a “virtual earthquake” at each station.
  
- ```{figure} ../figures/08_intuition.jpg
+ ```{figure} ../figures/07_intuition.jpg
  ---
  width: 600px
  ---
@@ -583,7 +583,7 @@ Virtual source at each station.
 
 ## Ambient Noise Processing Workflow
 
-```{figure} ../figures/08_an_map.png
+```{figure} ../figures/07_an_map.png
 ---
 width: 600px
 ---
@@ -593,7 +593,7 @@ Map of locations of stations ANMO and CCM.
 **STEP 1: Download continuous waveform data**  
 Continuous records contain ambient seismic noise from oceans, atmosphere, and human activity.
 
-```{figure} ../figures/08_an_step1.png
+```{figure} ../figures/07_an_step1.png
 ---
 width: 600px
 ---
@@ -603,7 +603,7 @@ Record sections of raw data recorded on stations ANMO and CCM.
 **STEP 2: Remove earthquakes / instrument response**  
 Removes transient earthquake signals and converts data into true ground motion.
 
-```{figure} ../figures/08_an_step2.png
+```{figure} ../figures/07_an_step2.png
 ---
 width: 600px
 ---
@@ -616,7 +616,7 @@ Suppresses large-amplitude events so they do not dominate the cross-correlation.
 **STEP 4: Spectrally whiten**  
 Flattens the amplitude spectrum so all frequencies contribute more equally.
 
-```{figure} ../figures/08_an_step3.png
+```{figure} ../figures/07_an_step3.png
 ---
 width: 600px
 ---
@@ -629,7 +629,7 @@ Retrieves the empirical Green’s function between the stations.
 **STEP 6: Stack correlations over days/months**  
 Enhances coherent arrivals while incoherent noise averages away.
 
-```{figure} ../figures/08_an_step4.png
+```{figure} ../figures/07_an_step4.png
 ---
 width: 600px
 ---
@@ -640,7 +640,7 @@ Example of cross-correlations and their frequency dependence.
 
 ## Empirical Green’s Functions
 
-```{figure} ../figures/08_egf.png
+```{figure} ../figures/07_egf.png
 ---
 width: 800px
 ---
@@ -657,7 +657,7 @@ These waves are dispersive:
 
 **STEP 7: Measure dispersion curves**
 
-```{figure} ../figures/08_moveout.png
+```{figure} ../figures/07_moveout.png
 ---
 width: 800px
 ---
@@ -679,4 +679,43 @@ Produces:
 
 **STEP 8: Invert for: $V_S(z)$**
 
+```{figure} ../figures/07_tomo1.png
 ---
+width: 800px
+---
+```
+```{figure} ../figures/07_tomo2.png
+---
+width: 800px
+---
+```
+```{figure} ../figures/07_tomo3.png
+---
+width: 800px
+---
+```
+```{figure} ../figures/07_tomo4.png
+---
+width: 800px
+---
+```
+```{figure} ../figures/07_tomo5.png
+---
+width: 800px
+---
+```
+```{figure} ../figures/07_tomo6.png
+---
+width: 800px
+---
+```
+```{figure} ../figures/07_tomo7.png
+---
+width: 800px
+---
+```
+```{figure} ../figures/07_tomo8.png
+---
+width: 800px
+---
+```

@@ -52,7 +52,9 @@ project:
     - title: Week 7 — Surface Waves and Ambient Noise
       children:
         - file: lectures/07_surface_waves
+        - file: demos/07_noise_correlation_demo
         - file: notebooks/07_surface_wave_practice
+
 		
 #    - title: Week 4 — Reflection Seismology
 #      children:
