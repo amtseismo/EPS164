@@ -322,6 +322,24 @@ Since Earth velocity generally increases with depth short-period waves travel sl
 
 ---
 
+## What Do Dispersion Curves Tell Us?
+
+```{figure} ../figures/07_dispersion_curve.png
+---
+width: 600px
+---
+Dispersion curves for the fundamental mode Love wave (n = 0) and higher modes (n > 0) in a simple crustal model, consisting of a uniform 40-km-thick layer over a half-space. The phase velocity decreases with frequency, starting at the shear velocity, β2, of the bottom layer and then asymptotically approaching the shear velocity, β1,ofthe toplayer.
+```
+
+**Interpreting Love-Wave Dispersion Curves:**
+- Dispersion curves show how **phase velocity** $c$ changes with frequency.
+- Low frequencies penetrate deeper and sample the faster half-space, so $c \rightarrow \beta_2$.
+- High frequencies stay concentrated in the slow surface layer, so $c \rightarrow \beta_1$.
+- The **group velocity** describes how the wave packet (energy) travels: $U = \frac{d\omega}{dk}$.
+- In dispersive media, **group velocity and phase velocity are different**, causing wave packets to spread and change shape as they propagate.
+
+---
+
 ## Phase Velocity vs Group Velocity in Seismology
 
 A single sinusoidal wave extends infinitely in space and does not represent a localized signal or pulse.  Real seismic waves are instead composed of many nearby frequencies that interfere to form a **wave packet**.  The small oscillations within the packet move with the **phase velocity** The overall envelope of the packet moves with the **group velocity**
@@ -337,17 +355,6 @@ The **group velocity** is:
 - energy travels along the actual ray paths
 
 For dispersive waves, phase and group velocity are different.
-
-```{figure} ../figures/07_dispersion_curve.png
----
-width: 600px
----
-Dispersion curves for the fundamental mode Love wave (n = 0) and higher modes (n > 0) in a simple crustal model, consisting of a uniform 40-km-thick layer over a half-space. The phase velocity decreases with frequency, starting at the shear velocity, β2, of the bottom layer and then asymptotically approaching the shear velocity, β1,ofthe toplayer.
-```
-
----
-
-## What Do Dispersion Curves Tell Us?
 
 Surface-wave velocity depends on period because different periods sample different depths.
 
@@ -367,13 +374,6 @@ width: 800px
 ---
 Fundamental Love and Rayleigh dispersion curves computed from the isotropic PREM model.
 ```
-
-**Interpreting Love-Wave Dispersion Curves:**
-- Dispersion curves show how **phase velocity** $c$ changes with frequency.
-- Low frequencies penetrate deeper and sample the faster half-space, so $c \rightarrow \beta_2$.
-- High frequencies stay concentrated in the slow surface layer, so $c \rightarrow \beta_1$.
-- The **group velocity** describes how the wave packet (energy) travels: $U = \frac{d\omega}{dk}$.
-- In dispersive media, **group velocity and phase velocity are different**, causing wave packets to spread and change shape as they propagate.
 
 ---
 
