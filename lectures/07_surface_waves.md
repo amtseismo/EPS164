@@ -366,11 +366,12 @@ width: 800px
 Fundamental Love and Rayleigh dispersion curves computed from the isotropic PREM model.
 ```
 
-Surface waves are sensitive to:
-- crustal thickness
-- sedimentary basins
-- lithospheric structure
-- low-velocity zones
+**Interpreting Love-Wave Dispersion Curves:**
+- Dispersion curves show how **phase velocity** $c$ changes with frequency.
+- Low frequencies penetrate deeper and sample the faster half-space, so $c \rightarrow \beta_2$.
+- High frequencies stay concentrated in the slow surface layer, so $c \rightarrow \beta_1$.
+- The **group velocity** describes how the wave packet (energy) travels: $U = \frac{d\omega}{dk}$.
+- In dispersive media, **group velocity and phase velocity are different**, causing wave packets to spread and change shape as they propagate.
 
 ---
 
@@ -438,35 +439,244 @@ Sumatra Earthquake Poster showing R1, R2, etc.
 
 ---
 
-## Surface-Wave Tomography
+# Measuring Group and Phase Velocity
 
-Surface-wave travel times can be inverted for:
+Group velocity $U = \frac{d\omega}{dk}$:
 
-shear-wave velocity structure
-crust and upper mantle heterogeneity
+- Measured from the arrival time of the wave packet (energy).
+- Can be estimated using narrow-band filtered seismograms.
+- Indicates how fast energy propagates.
 
-Applications:
+Phase velocity $c = \frac{\omega}{k}$:
 
-continental structure
-basin imaging
-tectonics
+- Measured by tracking the phase of a specific frequency component.
+- Indicates how fast individual wave crests propagate.
+- More difficult because phase is only known modulo \(2\pi\) (“cycle skipping”).
+
+In dispersive media: $U \neq c$ so wave packets spread and change shape during propagation.
+
+```{figure} ../figures/08_measuring_velocity.png
+---
+width: 600px
+---
+Example of group and phase velocity.
+```
 
 ---
 
-## Surface Waves and Seismic Hazard
+## Group and Phase Velocity Example
 
-Surface waves often dominate:
+```{figure} ../figures/08_record_section.png
+---
+width: 600px
+---
+Earthquake record section with measured phase and group velocities.
+```
 
-long-duration shaking
-basin amplification
+- The peak amplitude of the R2 Rayleigh wave occurs at about 200-s period, i.e., between troughs that are about 200 s apart (see dots in figure). 
+- R2 travels along the major arc, thus the appropriate distance for the top waveform is 310.5$^\circ$ or 34,524 km (note that on the Earth’s surface 1$^\circ$ = 111.19 km). 
+- The time of the peak is 9650 s and the average group velocity from the source is U = X/T = 34,524/9650 = 3.58 km/s. 
+- The phase velocity can be measured by tracking a specific peak among nearby stations, as shown by the line in the plot 0.040$^\circ$/s or 4.45 km/s. 
 
-Examples:
+---
 
-Mexico City
-Los Angeles basin
+# Ambient Noise Tomography (ANT)
 
-Long-period surface waves strongly affect:
+Ambient noise tomography involves seismic “noise” to image Earth structure
 
-tall buildings
-bridges
-large infrastructure
+- Cross-correlation of continuous seismic noise
+- Retrieval of empirical Green’s functions
+- Surface-wave tomography without earthquakes!
+
+```{figure} ../figures/08_ant.png
+---
+width: 800px
+---
+Example of group and phase velocity.
+```
+
+---
+
+## Why Use Ambient Noise?
+
+ Earth is constantly vibrating due to ocean microseisms, atmosphere, and anthropogenic activity.
+ 
+ Continuous noise provides:
+ - dense temporal coverage
+ - station-to-station measurements
+ - imaging even without earthquakes
+ 
+```{figure} ../figures/08_ta.png
+---
+width: 800px
+---
+Transportable array locations as a function of time.
+```
+  
+---
+
+## Core Idea of Ambient Noise Interferometry
+
+Two stations record continuous ambient seismic noise:
+
+$$
+u_A(t),\quad u_B(t)
+$$
+
+We compute the cross-correlation between the recordings:
+
+$$
+C_{AB}(\tau)
+=
+\int u_A(t)\,u_B(t+\tau)\,dt
+$$
+
+After averaging over long times and many noise sources, the cross-correlation converges toward the *symmetrized Green’s function* between the stations:
+
+$$
+\frac{\partial C_{AB}(t)}{\partial t}
+\approx
+G_{AB}(t)-G_{AB}(-t)
+$$
+
+where:
+- $G_{AB}(t)$ is the causal Green’s function from A to B
+- $G_{AB}(-t)$ is the acausal Green’s function from B to A
+
+Positive and negative lag times therefore correspond to waves propagating in opposite directions between the stations.
+
+In practice, the cross-correlation waveform closely resembles the interstation impulse response (empirical Green’s function).
+
+---
+
+## Why Does Cross-Correlation Recover the Green’s Function?
+
+- Both stations record the same random sources
+- Correlation removes the unknown source history
+- Incoherent arrivals cancel during averaging
+- Waves traveling between the stations add coherently
+
+Random noise averages away, propagation physics remains.
+
+---
+
+## Intuition: A Virtual Source
+
+ Noise source → Station A → Station B
+
+ The travel-time difference appears as a peak in the correlation.
+
+ After averaging many sources:
+ - Station A behaves like a virtual source
+ - Station B records the impulse response
+
+ Ambient noise creates a “virtual earthquake” at each station.
+ 
+ ```{figure} ../figures/08_intuition.jpg
+ ---
+ width: 600px
+ ---
+Virtual source at each station.
+ ```
+ 
+---
+
+## Ambient Noise Processing Workflow
+
+```{figure} ../figures/08_an_map.png
+---
+width: 600px
+---
+Map of locations of stations ANMO and CCM.
+```
+
+**STEP 1: Download continuous waveform data**  
+Continuous records contain ambient seismic noise from oceans, atmosphere, and human activity.
+
+```{figure} ../figures/08_an_step1.png
+---
+width: 600px
+---
+Record sections of raw data recorded on stations ANMO and CCM.
+```
+
+**STEP 2: Remove earthquakes / instrument response**  
+Removes transient earthquake signals and converts data into true ground motion.
+
+```{figure} ../figures/08_an_step2.png
+---
+width: 600px
+---
+Processed data after removing instrument response and large transient signals.
+```
+
+**STEP 3: Normalize amplitudes**  
+Suppresses large-amplitude events so they do not dominate the cross-correlation.
+
+**STEP 4: Spectrally whiten**  
+Flattens the amplitude spectrum so all frequencies contribute more equally.
+
+```{figure} ../figures/08_an_step3.png
+---
+width: 600px
+---
+Example of normalized and spectrally whitened ambient noise data.
+```
+
+**STEP 5: Cross-correlate station pairs**  
+Retrieves the empirical Green’s function between the stations.
+
+**STEP 6: Stack correlations over days/months**  
+Enhances coherent arrivals while incoherent noise averages away.
+
+```{figure} ../figures/08_an_step4.png
+---
+width: 600px
+---
+Example of cross-correlations and their frequency dependence.
+```
+
+---
+
+## Empirical Green’s Functions
+
+```{figure} ../figures/08_egf.png
+---
+width: 800px
+---
+Record sections of raw data recorded on stations ANMO and CCM.
+```
+
+Cross-correlations are dominated by:
+- Rayleigh waves
+- Love waves
+
+These waves are dispersive:
+- long periods → deeper sensitivity
+- short periods → shallow sensitivity
+
+**STEP 7: Measure dispersion curves**
+
+```{figure} ../figures/08_moveout.png
+---
+width: 800px
+---
+Moveout on ambient noise cross correlation.
+```
+
+---
+
+## From Dispersion to Tomography
+
+For many station pairs:
+- measure travel times
+- map surface-wave velocities
+
+Produces:
+- phase velocity maps
+- group velocity maps
+- dispersion curves at each location
+
+**STEP 8: Invert for: $V_S(z)$**
+
+---
