@@ -34,6 +34,8 @@ By the end of this lecture, you should be able to:
 - distinguish between phase velocity and group velocity
 - explain why different surface-wave frequencies sample different depths
 - interpret basic surface-wave dispersion curves
+- explain the basic idea behind ambient noise tomography
+- describe how cross-correlations can recover empirical Green’s functions
 
 ---
 
