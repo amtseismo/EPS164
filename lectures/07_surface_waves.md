@@ -1,11 +1,4 @@
-# Chapter 7: Surface Waves
-
-```{figure} ../figures/qrcode_47.png
----
-name: 4/28 Quiz QR Code
-alt: 4/28 Quiz QR Code
----
-```
+# Chapter 8: Surface Waves
 
 ## Purpose
 
