@@ -55,6 +55,11 @@ project:
         - file: demos/07_noise_correlation_demo
         - file: notebooks/07_surface_wave_practice
 
+    - title: Week 8 — Earthquakes and Source Theory
+      children:
+        - file: lectures/08_sources
+        - file: demos/08a_demo_covseisnet
+        - file: demos/08b_plot_pdf_example
 		
 #    - title: Week 4 — Reflection Seismology
 #      children:
