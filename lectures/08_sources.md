@@ -113,16 +113,7 @@ $$
 - Other directions produce dilatational first motions
 - Certain directions produce no P-wave motion at all (nodal planes)
 
-For a double-couple source, the angular dependence of the P-wave radiation is:
-
-$$
-u^P
-\propto
-\sin 2\theta \cos\phi
-$$
-
-where:
-- $\theta$ and $\phi$ describe the takeoff direction from the source
+For a double-couple source, P-wave amplitude depends strongly on takeoff direction and azimuth relative to the fault.
 
 👉 Earthquakes radiate seismic energy directionally rather than equally in all directions.
 
@@ -130,7 +121,7 @@ where:
 ---
 width: 600px
 ---
-Ground motion visualization for Mw 8.8 off east coast of Kamchatka
+Ground motion visualization for P-wave radiation.
 ```
 
 ---
@@ -424,9 +415,13 @@ How do the moment and magnitude change if we increase slip to 8 m?
 
 # Green's Functions and the Moment Tensor
 
-## Earthquake Sources and the Representation Theorem
+## The Forward Problem in Seismology
 
-Seismic wave propagation in an elastic medium is governed by:
+One of the central goals of seismology is the **forward problem**:
+
+> Given an earthquake source and Earth structure, how do we predict the seismic waves recorded at a station?
+
+Seismic wave propagation in an elastic medium is governed by the elastic wave equation:
 
 $$
 \rho \frac{\partial^2 u_i}{\partial t^2}
@@ -440,67 +435,85 @@ where:
 - $\tau_{ij}$ = stress tensor
 - $f_i$ = body force
 
-The **representation theorem** states that the displacement field within a volume is uniquely determined if we know the body forces and either the tractions or displacements on the boundary surface.
+Physically:
+- stress gradients accelerate the medium
+- forces generate seismic motion
+- wave propagation depends on Earth structure and source properties
 
-👉 Practically, this means we can mathematically replace complicated fault slip with an equivalent source representation and predict the seismic waves recorded at distant stations.
+👉 Solving this equation directly for a realistic earthquake rupture is generally very difficult.
 
 ---
 
-## The Point Source
+## Why We Need Green’s Functions
 
-Solving the full elastic wave equation with arbitrary source forces is generally difficult.  To simplify the problem, we consider a very simple source: a unit force applied at position $\mathbf{x}_0$ at time $t_0$
+Instead of solving the elastic wave equation separately for every earthquake, we first solve a much simpler problem:
 
-$$
-f(\mathbf{x}_0,t_0)
-$$
+> How does the Earth respond to a very simple source?
 
-This is not a realistic earthquake source, but it is useful because more complicated sources can be constructed as sums of many point forces.
+The simplest possible source is a unit impulsive force applied at a point in space and time.
 
 The displacement observed at a receiver location $\mathbf{x}$ is:
 
 $$
-u(\mathbf{x},t)
+u_i(\mathbf{x},t)
+=
+G_{ij}(\mathbf{x},t;\mathbf{x}_0,t_0)\,f_j
 $$
-
-which depends on Earth structure, source and receiver location, and all reflected/refracted phases.
-
-👉 The Earth’s response to a unit point force is called a **Green’s function**. Once Green’s functions are known, more realistic earthquake sources can be constructed from them.
-
----
-
-## Elastodynamic Green’s Functions
-
->The displacement from a point force source can be written as:
-$$u_i(\mathbf{x},t)=G_{ij}(\mathbf{x},t;\mathbf{x}_0,t_0)\,f_j(\mathbf{x}_0,t_0)$$
 
 where:
 - $u_i$ = displacement at the receiver
 - $f_j$ = force applied at the source
 - $G_{ij}$ = elastodynamic Green’s function
 
-The **Green’s function** describes the Earth’s response to a unit point force and contains all information about wave propagation, Earth structure, reflections and refractions, and boundary conditions.
+The **Green’s function** describes the Earth’s response to a unit point force and contains all information about:
+- wave propagation
+- Earth structure
+- reflections and refractions
+- boundary conditions
+
+👉 Green’s functions are the impulse responses of the Earth.
 
 Because the elastic wave equation is linear:
 
-👉 Complex earthquake sources can be constructed by summing many point-force solutions.
+👉 Complicated earthquake sources can be constructed by summing many simple point-force solutions.
 
-👉 If Green’s functions are known, observed seismic waves can also be inverted to estimate the earthquake source.
+---
+
+## Why a Point Force Is Not a Real Earthquake
+
+Although a point force is mathematically convenient, it is not a realistic earthquake source.
+
+Why?
+
+### Problem 1: Conservation of Momentum
+
+A single internal force would accelerate the Earth in one direction and produce net linear momentum.
+
+Real earthquakes do not do this.
+
+### Problem 2: Earthquakes Are Slip, Not External Pushes
+
+Earthquakes occur because two sides of a fault slide past one another.
+
+There is no external hammer striking the Earth.
+
+👉 Real earthquake sources must involve opposing forces.
+
+To represent this mathematically, we introduce a **force couple**:
+- two equal and opposite forces
+- separated by a small distance
+
+A force couple conserves linear momentum and provides a much better representation of fault slip.
 
 ---
 
 ## Force Couples and Double Couples
 
-Earthquakes are generated by slip on a fault surface, producing a discontinuity in displacement within the Earth. Although fault slip is not itself a body force, it can be represented mathematically by an equivalent system of forces.
+A single force couple still produces a net torque, which would rotate the Earth.
 
-For localized sources:
-- a single point force is generally unphysical because it does not conserve momentum
-- internal sources must involve opposing forces
+Real earthquakes also conserve angular momentum, so a second complementary force couple is required.
 
-A pair of equal and opposite forces separated by a small distance is called a **Force couple** (or vector dipole).
-
-If the force separation is perpendicular to the force direction, conservation of angular momentum requires a second complementary couple
-
-The **double-couple** source is the fundamental representation of earthquake fault slip.
+The **double-couple** model is the fundamental representation of earthquake fault slip.
 
 ```{figure} ../figures/08_force_couples.png
 ---
@@ -511,29 +524,40 @@ width: 300px
 Force couples are opposing point forces separated by a small distance. A double couple is a pair of complementary couples that produce no net torque.
 ```
 
+👉 The double-couple source produces the characteristic four-quadrant radiation pattern observed in earthquake focal mechanisms.
+
 ---
 
-## Moment Tensors
+Rather than tracking many individual force couples separately, we collect them into a single mathematical object called the **Moment tensor**.
 
-A force couple consists of two equal and opposite forces.
+A force couple $M_{ij}$ represents forces acting in the $i$-direction separated in the $j$-direction.
 
-We define a force couple $M_{ij}$ as forces acting in the $i$-direction separated in the $j$-direction.
+The full moment tensor is:
 
-The collection of all force couples forms the:
-
->**Moment tensor**
-$$\mathbf{M} =\begin{bmatrix}
+$$
+\mathbf{M} =
+\begin{bmatrix}
 M_{11} & M_{12} & M_{13} \\
 M_{21} & M_{22} & M_{23} \\
 M_{31} & M_{32} & M_{33}
 \end{bmatrix}
 $$
 
-Conservation of angular momentum requires $M_{ij} = M_{ji}$
+The moment tensor compactly describes the geometry and strength of an earthquake source.
+
+The tensor components have physical meaning:
+- diagonal terms represent expansion or contraction
+- off-diagonal terms represent shear force couples
+
+Conservation of angular momentum requires:
+
+$$
+M_{ij}=M_{ji}
+$$
 
 so the moment tensor is symmetric and has only six independent components.
 
-👉 The moment tensor provides a compact mathematical description of earthquake sources and is the foundation for focal mechanisms and seismic source inversion.
+👉 The moment tensor is the mathematical foundation of focal mechanisms and seismic source inversion.
 
 ```{figure} ../figures/08_moment_tensor_components.png
 ---
@@ -596,6 +620,31 @@ This equation shows that seismograms depend linearly on the moment tensor.
 If the Earth structure and Green’s functions are known, we can:
 - predict synthetic seismograms from a source model
 - or invert observed seismograms to determine the moment tensor
+
+```{figure} ../figures/08_mt_inversion.png
+---
+name: Yellowstone MT Inversion
+alt: Yellowstone MT Inversion
+width: 600px
+---
+Focal mechanism determined by moment tensor analysis on an M4.4 event in Yellowstone National Park in 2017
+```
+
+---
+
+## Big Picture: Earthquake Source Theory
+
+Earthquake fault slip  
+↓  
+Equivalent double-couple source  
+↓  
+Moment tensor representation  
+↓  
+Green’s functions propagate seismic waves  
+↓  
+Synthetic seismograms  
+↓  
+Invert observations for earthquake source parameters
 
 ---
 
@@ -679,9 +728,7 @@ width: 500px
 
 Double-couple earthquake sources produced by shear faulting have zero trace and zero determinant and therefore involve no net volume change.
 
-However, more general moment tensors are possible.
-
-For an isotropic source (e.g., an explosion):
+However, more general moment tensors are possible.  For an isotropic source (e.g., an explosion):
 
 $$
 \mathbf{M} =
@@ -706,7 +753,7 @@ This represents:
 
 ---
 
-## Decomposition of the Moment Tensor
+## Advanced: Decomposition of the Moment Tensor
 
 A general moment tensor can contain:
 - isotropic components
@@ -783,7 +830,7 @@ $$
 
 ---
 
-## Non-Double-Couple Earthquakes
+## Advanced: Non-Double-Couple Earthquakes
 
 Most tectonic earthquakes are well described by:
 - pure double-couple (DC) sources
