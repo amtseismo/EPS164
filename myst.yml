@@ -60,6 +60,7 @@ project:
         - file: lectures/08_sources
         - file: demos/08a_demo_covseisnet
         - file: demos/08b_plot_pdf_example
+        - file: demos/08_beachball_demo
 		
 #    - title: Week 4 — Reflection Seismology
 #      children:
