@@ -621,7 +621,7 @@ If the Earth structure and Green’s functions are known, we can:
 - predict synthetic seismograms from a source model
 - or invert observed seismograms to determine the moment tensor
 
-```{figure} ../figures/08_mt_inversion.png
+```{figure} ../figures/09_mt_inversion.png
 ---
 name: Yellowstone MT Inversion
 alt: Yellowstone MT Inversion
