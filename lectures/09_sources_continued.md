@@ -135,7 +135,7 @@ A short-duration pulse in time corresponds to a broad spectrum in frequency.
 
 The displacement spectrum of a simple earthquake source typically has the form:
 
-```{figure} ../figures/10_source_spectrum.png
+```{figure} ../figures/09_source_spectrum.png
 ---
 name: Source spectrum
 width: 800px
@@ -272,7 +272,7 @@ So far we have mostly treated earthquakes as point sources.  Large earthquakes, 
 
 A simple idealized source is the **Haskell source** where seismic moment increases linearly with time.
 
-```{figure} ../figures/10_haskell_source.png
+```{figure} ../figures/09_haskell_source.png
 ---
 name: Haskell Source
 width: 400px
@@ -292,7 +292,7 @@ $$
 \tau_d = \frac{L}{v_r}
 $$
 
-then the observed pulse duration depends on station geometry because waves from different parts of the fault arrive at different times.
+where $\tau_d$ is the **rupture duration** then the observed pulse duration depends on station geometry because waves from different parts of the fault arrive at different times.
 
 👉 Finite faults produce azimuth-dependent waveform durations.
 
@@ -300,11 +300,13 @@ then the observed pulse duration depends on station geometry because waves from 
 
 # Rupture Directivity
 
-```{figure} ../figures/10_directivity_geometry.png
+```{figure} ../figures/09_directivity_geometry.png
 ---
+name: Directivity geometry
 width: 650px
+alt: Azimuthal variability of the source time function for a unilaterally rupturing fault. 
 ---
-A unilateral rupture propagating along a fault.
+Azimuthal variability of the source time function for a unilaterally rupturing fault.  The duration changes, but the area of the source time function is the seismic moment and is independent of azimuth.
 ```
 
 For a station at azimuth $\theta$ relative to rupture propagation:
@@ -337,11 +339,49 @@ This effect is called **directivity**.
 
 If slip at each point on the fault occurs as a ramp function, the observed pulse becomes trapezoidal:
 
-```{figure} ../figures/10_haskell_fault_model.png
+```{figure} ../figures/09_haskell_fault_model.png
 ---
-width: 600px
+width: 400px
 ---
-The Haskell fault model produces trapezoidal displacement pulses.
+The Haskell fault model consists of the convolution of two boxcar functions with widths given by the rise time and rupture duration.
 ```
 
 👉 Directivity redistributes seismic energy in time and strongly influences observed shaking.
+
+---
+
+# Haskell Source Spectra and the $\omega^{-2}$ Model
+
+In the Haskell fault model:
+- local slip duration produces one timescale ($\tau_r$)
+- rupture propagation produces another ($\tau_d$)
+
+The resulting source spectrum contains:
+- a low-frequency flat region
+- intermediate spectral decay
+- high-frequency falloff
+
+
+```{figure} ../figures/09_boxcar_spectrum.png
+---
+name: Amplitude spectrum of a Haskell source model.
+width: 700px
+alt: Haskell fault model amplitude spectrum.
+---
+The amplitude spectrum for the Haskell fault model. The spectrum is the product of two sinc functions, corresponding in the time domain to the convolution of two boxcar functions of durations τd and τr. The spectral amplitudes fall off as ω−1 for 2/τd <ω < 2/τr and as ω−2 for ω> 2/τr.For the spectrum plotted in this figure, τd = 8τr.
+```
+
+Spectral Regions:
+
+- At low frequency: $|A(\omega)| \propto M_0$
+- At high frequency: $|A(\omega)| \propto \omega^{-2}$.  This behavior is called the **$\omega^{-2}$ source model**
+- The transition frequency is called the corner frequency
+
+Interpretation:
+
+- large earthquakes → lower corner frequencies
+- small earthquakes → higher corner frequencies
+
+👉 Source spectra contain information about earthquake size and rupture duration.
+
+
