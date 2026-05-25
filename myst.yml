@@ -55,50 +55,17 @@ project:
         - file: demos/07_noise_correlation_demo
         - file: notebooks/07_surface_wave_practice
 
-    - title: Week 8 — Earthquakes and Source Theory
+    - title: Week 8 — Beachballs, radiation patterns, and Moment Tensors
       children:
         - file: lectures/08_sources
         - file: demos/08a_demo_covseisnet
         - file: demos/08b_plot_pdf_example
         - file: demos/08_beachball_demo
-		
-#    - title: Week 4 — Reflection Seismology
-#      children:
-#        - file: notebooks/04a_Reflection_Transmission_Theory
-#        - file: notebooks/04b_Reflection_CMP_Practice
-#
-#    - title: Week 5 — Surface Waves
-#      children:
-#        - file: lectures/surface-waves
-#        - file: notebooks/05a_Rayleigh_Waves_Theory
-#        - file: notebooks/05b_Love_Waves_Theory
-#        - file: notebooks/05c_Surface_Waves_Practice
-#        - file: notebooks/05d_Noise_CrossCorrelation_Practice
-#
-#    - title: Week 6 — Earthquake Sources
-#      children:
-#        - file: lectures/earthquake-location
-#        - file: notebooks/06a_Earthquake_Location_Practice
-#
-#    - title: Week 7 — Moment Tensors & Magnitudes
-#      children:
-#        - file: lectures/moment-tensor
-#        - file: notebooks/07a_Moment_Tensor_Practice
-#        - file: lectures/07b-radiation-patterns
-#        - file: notebooks/07b_Radiation_Pattern_Synthetic
-#        - file: lectures/07c-magnitudes
-#        - file: notebooks/07c_Magnitude_Lab
-#        - file: lectures/07d_source_dynamic
-#        - file: notebooks/07d_source_dynamic
-#
-#    - title: Week 8 — Earthquake Dynamics
-#      children:
-#        - file: lectures/08_nucleation_dynamics
-#        - file: notebooks/08_Nucleation_Dynamics_Practice
-#
-#    - title: Week 9 — Synthesis & Frontiers
-#      children:
-#        - file: lectures/09_synthesis_frontiers
+
+    - title: Week 9 — Earthquakes and Source Theory
+      children:
+        - file: lectures/09_sources_continued
+
 #
 #    # --- Optional ---
 #    - title: Optional — Advanced Topics
