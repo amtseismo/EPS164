@@ -1,10 +1,5 @@
 # Chapter 9: Beachballs, Focal Mechanisms, and Moment Tensors
 
-```{figure} ../figures/qrcode_47.png
----
----
-```
-
 ## Purpose
 
 In previous chapters, we focused primarily on seismic wave propagation through the Earth. In this chapter, we shift our attention to the **earthquake source itself** and how fault motion generates seismic waves.
@@ -527,6 +522,8 @@ Force couples are opposing point forces separated by a small distance. A double 
 👉 The double-couple source produces the characteristic four-quadrant radiation pattern observed in earthquake focal mechanisms.
 
 ---
+
+## The Moment Tensor
 
 Rather than tracking many individual force couples separately, we collect them into a single mathematical object called the **Moment tensor**.
 
