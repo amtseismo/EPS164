@@ -21,6 +21,17 @@ We will:
 
 ---
 
+## Reading
+
+Shearer Chapter 9: Earthquakes and Source Theory
+
+- Section 9.4: Pulse Shapes
+- Section 9.5: Stress Drop
+- Section 9.6: Radiated Seismic Energy
+- Section 9.7: Earthquake Magnitude
+
+---
+
 # Far-Field Earthquake Radiation
 
 Last lecture we showed that earthquakes radiate seismic energy directionally.
@@ -164,12 +175,7 @@ Physically:
 
 ## Corner Frequency
 
-The transition between low- and high-frequency behavior occurs near the:
-
-> **Corner frequency**
-$$
-f_c
-$$
+The transition between low- and high-frequency behavior occurs near the **corner frequency**, $f_c$.
 
 The corner frequency is inversely related to rupture duration:
 
@@ -379,9 +385,412 @@ Spectral Regions:
 
 Interpretation:
 
-- large earthquakes → lower corner frequencies
-- small earthquakes → higher corner frequencies
+- large earthquakes → longer duration → lower corner frequencies
+- small earthquakes → shorter duration → higher corner frequencies
 
 👉 Source spectra contain information about earthquake size and rupture duration.
 
+---
 
+# Stress Drop
+
+The seismic moment does not uniquely determine how much stress changed on the fault.
+
+For example:
+- small slip on a very large fault
+- large slip on a small fault
+
+can produce the same seismic moment.
+
+> **Stress drop** describes the average stress change caused by an earthquake
+$$
+\Delta \sigma
+$$
+
+Physically:
+- stress drop measures how much shear stress is released during rupture
+- larger stress drops generally correspond to more abrupt fault failure
+
+For a circular fault:
+
+$$
+\Delta \sigma
+=
+\frac{7M_0}{16r^3}
+$$
+
+where:
+- $M_0$ = seismic moment
+- $r$ = fault radius
+
+👉 Large slip on a small fault produces larger stress drop than the same slip distributed over a large fault.
+
+Typical stress drops:
+- interplate earthquakes: $\sim 3$ MPa
+- intraplate earthquakes: $\sim 6$ MPa
+
+---
+
+## Corner Frequency and Small Earthquakes
+
+Small earthquakes are too small to image directly, so rupture dimensions must be inferred from seismic waves.  A key observable is the Corner frequency, $f_c$.
+
+The rupture size is approximately:
+
+$$
+r \propto \frac{\beta}{f_c}
+$$
+
+where:
+- $r$ = source radius
+- $\beta$ = shear-wave velocity
+
+Combining this with the stress-drop relation gives:
+
+$$
+\Delta \sigma
+\propto
+\left(
+\frac{f_c}{\beta}
+\right)^3
+M_0
+$$
+
+👉 Stress drop can be estimated from far-field seismic spectra.
+
+Important caveats:
+- stress-drop estimates depend strongly on the assumed rupture model
+- attenuation and site effects can distort spectra
+- corner frequencies can be difficult to measure accurately
+
+Observed stress drops span a wide range:
+$$
+\sim 0.1 - 50 \text{ MPa}
+$$
+
+even for earthquakes in the same region.
+
+---
+
+# Earthquake Energetics
+
+## Earthquake Energy Budget
+
+During an earthquake, elastic strain energy stored in the crust is released.
+
+This energy is partitioned into several components:
+
+$$
+E_{\text{total}}
+=
+E_R + E_G + E_F
+$$
+
+where:
+- $E_R$ = radiated seismic energy
+- $E_G$ = fracture energy
+- $E_F$ = frictional heating
+
+```{figure} ../figures/10_energy_budget_cartoon.png
+---
+width: 700px
+---
+Schematic earthquake energy budget showing partitioning into seismic waves, fracture energy, and frictional heating.
+```
+
+👉 Only a fraction of earthquake energy is radiated as seismic waves.
+
+---
+
+## Radiated Seismic Energy
+
+>Radiated energy: $E_R$
+
+is the energy carried away by seismic waves.
+
+This is the energy responsible for:
+- ground shaking
+- seismic wave propagation
+- earthquake damage at distance
+
+Large earthquakes radiate enormous amounts of energy, but:
+
+👉 Most of the total energy released by fault slip is *not* converted into seismic waves.
+
+Earthquakes with relatively large radiated energy compared to their moment are sometimes called **high apparent stress earthquakes**.
+
+---
+
+## Fracture Energy and Frictional Heating
+
+Some energy is consumed near the fault itself.
+
+>Fracture energy: $E_G$
+
+Energy required to:
+- break asperities
+- propagate rupture
+- generate new fractures
+
+
+>Frictional heating: $E_F$
+
+Energy dissipated as heat during sliding.
+
+Examples:
+- grain crushing
+- frictional slip
+- thermal pressurization
+- melting during extreme slip
+
+```{figure} ../figures/10_fault_heating.png
+---
+width: 600px
+---
+Fault slip converts mechanical energy into heat and damage within the fault zone.
+```
+
+👉 Much of earthquake energy may be dissipated locally on the fault.
+
+---
+
+## Apparent Stress and Earthquake Efficiency
+
+A useful quantity is the:
+
+> **Apparent stress**
+$$
+\sigma_a
+=
+\mu
+\frac{E_R}{M_0}
+$$
+
+where:
+- $\mu$ = shear modulus
+- $E_R$ = radiated seismic energy
+- $M_0$ = seismic moment
+
+Interpretation:
+- high $\sigma_a$ → efficient seismic radiation
+- low $\sigma_a$ → more energy dissipated near the fault
+
+Typical apparent stresses are:
+$$
+\sim 0.1 - 10 \text{ MPa}
+$$
+
+👉 Apparent stress measures how efficiently earthquakes radiate seismic energy.
+
+---
+
+## Why the Energy Budget Matters
+
+The earthquake energy budget helps constrain:
+- rupture physics
+- friction laws
+- fault-zone heating
+- earthquake efficiency
+- tsunami earthquakes
+- slow earthquakes
+
+Examples:
+- tsunami earthquakes radiate weak high-frequency shaking relative to their moment
+- slow slip events dissipate energy with little seismic radiation
+- supershear ruptures may radiate energy very efficiently
+
+👉 The partitioning of earthquake energy provides important clues about fault mechanics.
+
+---
+
+# Earthquake Magnitudes
+
+## What is Magnitude?
+
+Magnitude is a logarithmic measure of earthquake size derived from seismic waves.
+
+Different magnitude scales measure different parts of the seismic wavefield:
+
+General form:
+
+$$
+M
+=
+\log_{10}(\text{measurement})
++
+\text{corrections}
+$$
+
+Corrections account for:
+- distance
+- attenuation
+- instrument response
+- site effects
+
+👉 Magnitude depends on both the measurement and the calibration.
+
+---
+
+## Local Magnitude $M_L$
+
+```{figure} ../figures/09_ml.png
+---
+name: Richter magnitude calculation
+width: 500px
+alt: Richter magnitude graphic
+---
+Example of the calculation of the Richter magnitude ($M_L$) of a local earthquake (after Bolt, 1988). 
+```
+
+Charles Richter introduced local magnitude in 1935 using the Wood–Anderson seismometer.
+
+Definition:
+
+$$
+M_L
+=
+\log_{10}(A)
+-
+\log_{10}(A_0(\Delta))
+$$
+
+where:
+- $A$ = peak seismic amplitude
+- $A_0(\Delta)$ = distance correction
+
+Characteristics:
+- based on local/regional seismic waves
+- strongest sensitivity near ~1 Hz
+- widely used for regional catalogs
+
+Limitations:
+- depends strongly on regional calibration
+- saturates for large earthquakes
+
+👉 $M_L$ works best for small-to-moderate nearby earthquakes.
+
+---
+
+## Body-Wave Magnitude $m_b$
+
+Body-wave magnitude uses short-period teleseismic P waves.
+
+$$
+m_b
+=
+\log_{10}(A/T)
++
+Q(\Delta,h)
+$$
+
+where:
+- $A/T$ = amplitude-to-period ratio
+- $Q(\Delta,h)$ = distance/depth correction
+
+Characteristics:
+- measured from early P-wave arrivals
+- useful for global monitoring
+- commonly used for nuclear-test detection
+
+Main limitation:
+- severe saturation for large earthquakes
+
+👉 $m_b$ measures only the high-frequency part of the source spectrum.
+
+---
+
+## Surface-Wave Magnitude $M_s$
+
+Surface-wave magnitude uses Rayleigh waves with periods near 20 s.
+
+$$
+M_s
+=
+\log_{10}(A/T)
++
+\Sigma(\Delta)
+$$
+
+Characteristics:
+- measures longer-period energy than $m_b$
+- scales to larger events before saturating
+- useful for large shallow earthquakes
+
+Limitations:
+- underestimates deep earthquakes
+- eventually saturates for very large events
+
+👉 Surface waves are strongly affected by earthquake depth.
+
+---
+
+## Moment Magnitude $M_w$
+
+Moment magnitude is based on the scalar seismic moment (see previous lecture).
+
+Advantages:
+- directly related to fault physics
+- does not saturate
+- preferred modern magnitude scale
+
+👉 $M_w$ measures the total long-period strength of the earthquake source.
+
+---
+
+# Understanding Magnitude Saturation
+
+```{figure} ../figures/09_magnitude_saturation.png
+---
+name: Magnitude saturation
+width: 600px
+alt: Example of magnitude saturation in earthquake source spectra.
+---
+For larger events, the corner in the source spectrum moves to lower frequencies, reducing the observed amplitude increase at the fixed frequencies used to estimate $M_S$ and $m_b$.
+```
+Earthquake source spectra change shape as a function of magnitude.
+
+- low frequencies → flat spectral plateau proportional to $M_0$
+- high frequencies → amplitudes decay as $f^{-2}$
+- larger earthquakes rupture for longer durations and therefore have lower corner frequencies $f_c$
+
+Small earthquakes have a high corner frequency and short-period measurements sample the flat plateau.  Large earthquakes have a low corner frequency and short-period measurements sample the falling $f^{-2}$ branch
+
+Thus:
+- short-period amplitudes increase slowly even as $M_0$ grows rapidly
+
+This produces:
+- $M_L$ saturation
+- $m_b$ saturation
+- eventual $M_s$ saturation
+- $M_w$ does not saturate because it depends on the low-frequency spectral plateau.
+
+---
+
+## Comparing Magnitude Scales
+
+| Type | Measured observable | Band / phase | Distance regime | Calibration parameters | 
+|---|---|---|---|---|
+| $M_L$ | Peak displacement amplitude (WA or simulated WA) | ~1 s, local phases | Local–regional | $A_0(\Delta)$ distance curve; station/site terms | 
+| $m_b$ | $A/T$ of teleseismic P | Short-period P (~1 s) | Teleseismic | $Q(\Delta, h)$; phase selection | 
+| $M_s$ | $A/T$ of Rayleigh wave | Surface waves (~20 s) | Regional–teleseismic | $\Sigma(\Delta)$; period window | 
+| $M_w$ | Seismic moment $M_0$ | Long-period / model-based | All | Inversion/modeling choices | 
+
+Magnitude differences are often physically meaningful.
+
+Examples:
+- large earthquakes: $m_b < M_w$
+- deep earthquakes: $M_s$ biased low
+- explosions: unusually high $m_b$
+
+---
+
+## Why This Matters
+
+Magnitude scales are used for:
+- earthquake early warning
+- seismic hazard assessment
+- tsunami warning
+- nuclear-test monitoring
+- earthquake scaling studies
+
+Modern hazard studies typically prefer $M_w$ because it provides the most physically consistent measure of earthquake size.
