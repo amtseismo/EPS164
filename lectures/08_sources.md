@@ -375,21 +375,24 @@ What is the moment magnitude of the previous earthquake?
 Moment magnitude is related to scalar seismic moment by:
 
 $$
-M_w = \frac{2}{3}\log_{10}(M_0) - 6.07
+M_w = \frac{2}{3}\log_{10}(M_0) - 10.7
 $$
+
+where:
+- $M_0$ must be in units of dyne-cm
 
 Using:
 
 $$
-M_0 = 2.16\times10^{20}\,\text{N}\cdot\text{m}
+M_0 = 2.16\times10^{27}\,\text{dyne-cm}
 $$
 
 First compute the logarithm:
 
 $$
-\log_{10}(2.16\times10^{20})
+\log_{10}(2.16\times10^{27})
 =
-20.33
+27.33
 $$
 
 Then:
@@ -397,12 +400,13 @@ Then:
 $$
 M_w
 =
-\frac{2}{3}(20.33)-6.07
+\frac{2}{3}(27.33)-10.7
 $$
 
 $$
 \boxed{M_w \approx 7.5}
 $$
+
 
 How do the moment and magnitude change if we increase slip to 8 m?
 
