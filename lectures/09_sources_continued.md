@@ -310,9 +310,9 @@ For a station at azimuth $\theta$ relative to rupture propagation:
 $$
 \tau_c(\theta)
 =
-\frac{L}{c}
+L
 \left(
-1-\frac{v_r}{c}\cos\theta
+\frac{1}{v_r}-\frac{\cos\theta}{c}
 \right)
 $$
 
