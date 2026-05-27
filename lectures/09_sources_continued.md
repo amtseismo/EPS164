@@ -154,14 +154,8 @@ alt: Source spectra
 ---
 The relationships between near-field displacement and far-field displacement and velocity for time series (left two panels) and spectra (right panel).
 ```
-Key features:
-- low frequencies → approximately flat spectral level
-- high frequencies → amplitudes decrease rapidly
-- transition occurs near the **corner frequency** $f_c$
 
----
-
-## Long-Period Spectral Level
+### Long-Period Spectral Level
 
 At sufficiently low frequencies, the displacement spectrum approaches a constant value $\Omega_0$.
 
@@ -171,9 +165,7 @@ Physically:
 
 👉 The long-period spectral level is proportional to the scalar seismic moment.
 
----
-
-## Corner Frequency
+### Corner Frequency
 
 The transition between low- and high-frequency behavior occurs near the **corner frequency**, $f_c$.
 
@@ -197,9 +189,7 @@ Large earthquakes:
 
 👉 Corner frequency contains information about rupture duration and source size.
 
----
-
-## Displacement vs Velocity Spectra
+### Displacement vs Velocity Spectra
 
 Far-field displacement depends on:
 
@@ -402,10 +392,7 @@ For example:
 
 can produce the same seismic moment.
 
-> **Stress drop** describes the average stress change caused by an earthquake
-$$
-\Delta \sigma
-$$
+> **Stress drop**, $\Delta \sigma$, describes the average stress change caused by an earthquake
 
 Physically:
 - stress drop measures how much shear stress is released during rupture
@@ -474,29 +461,72 @@ even for earthquakes in the same region.
 
 # Earthquake Energetics
 
-## Earthquake Energy Budget
+## Where Does Earthquake Energy Come From?
 
-During an earthquake, elastic strain energy stored in the crust is released.
+Before an earthquake:
+- elastic strain energy is stored in the crust
+- the fault supports a shear stress $\tau$
 
-This energy is partitioned into several components:
+During rupture:
+- the fault slips by displacement $D$
+- the shear stress decreases
+
+Because work is force acting through a distance:
 
 $$
-E_{\text{total}}
+\text{work} = \text{force} \times \text{distance}
+$$
+
+and since:
+
+$$
+\tau = \frac{F}{A}
+$$
+
+the mechanical work done during fault slip is approximately:
+
+$$
+W \sim \tau D A
+$$
+
+or per unit fault area:
+
+$$
+\boxed{W/A \sim \tau D}
+$$
+
+👉 Earthquakes release elastic strain energy because stress decreases while the fault slips.
+
+---
+
+## Earthquake Energy Budget
+
+As the fault slips and stress decreases, stored elastic strain energy is released.
+
+This released energy is partitioned into several components:
+
+$$
+E_{\text{elastic}}
 =
 E_R + E_G + E_F
 $$
 
 where:
 - $E_R$ = radiated seismic energy
-- $E_G$ = fracture energy
-- $E_F$ = frictional heating
+- $E_G$ = fracture and damage energy
+- $E_F$ = frictional dissipation and heating
 
-```{figure} ../figures/10_energy_budget_cartoon.png
+```{figure} ../figures/09_earthquake_energy_budget.png
 ---
 width: 700px
 ---
-Schematic earthquake energy budget showing partitioning into seismic waves, fracture energy, and frictional heating.
+The shear stress, $\sigma_f$, on a point on a fault as a function of slip for the Orowan fault model and a simple example of a slip-weakening fault model. σ$\sigma_1$ and $\sigma_2$ are the initial and final stresses, $D$ is the total slip, $D_C$ is the critical slip, $E_R$ is the radiated seismic energy, $E_F$ is the frictional energy dissipated, and $E_G$ is the fracture energy released.
 ```
+
+Interpretation:
+- some energy radiates away as seismic waves
+- some energy breaks and damages the fault
+- some energy is dissipated locally as frictional heat
 
 👉 Only a fraction of earthquake energy is radiated as seismic waves.
 
@@ -504,50 +534,58 @@ Schematic earthquake energy budget showing partitioning into seismic waves, frac
 
 ## Radiated Seismic Energy
 
->Radiated energy: $E_R$
+> **Radiated energy**, $E_R$, is the energy carried away by seismic waves.
 
-is the energy carried away by seismic waves.
-
-This is the energy responsible for:
+This energy produces:
 - ground shaking
 - seismic wave propagation
 - earthquake damage at distance
 
 Large earthquakes radiate enormous amounts of energy, but:
 
-👉 Most of the total energy released by fault slip is *not* converted into seismic waves.
+👉 Most of the total elastic energy released during fault slip is *not* converted into seismic waves.
 
-Earthquakes with relatively large radiated energy compared to their moment are sometimes called **high apparent stress earthquakes**.
+Earthquakes with relatively large radiated energy compared to their moment are sometimes called **high apparent stress earthquakes**
 
 ---
 
-## Fracture Energy and Frictional Heating
+## Fracture Energy
 
-Some energy is consumed near the fault itself.
-
->Fracture energy: $E_G$
+> **Fracture energy**, $E_G$, is the energy required to weaken the fault and propagate rupture.
 
 Energy required to:
 - break asperities
 - propagate rupture
-- generate new fractures
+- generate off-fault damage
+- weaken the fault during slip
 
+Fracture energy corresponds to the extra work required to reduce the fault from peak strength to dynamic sliding stress.
 
->Frictional heating: $E_F$
+---
 
-Energy dissipated as heat during sliding.
+## Frictional dissipation
 
-Examples:
+> **Frictional energy**, $E_F$, is the energy consumed after the fault is already sliding dynamically.
+
+As the fault slides:
+
+$$
+E_F \sim \tau_f D A
+$$
+
+energy is dissipated through:
+- frictional heating
 - grain crushing
-- frictional slip
 - thermal pressurization
 - melting during extreme slip
 
-```{figure} ../figures/10_fault_heating.png
+```{figure} ../figures/09_frictional_melt.mp4
 ---
+name: Frictional melt
+alt: Melting a sample in a rotary shear apparatus.
 width: 600px
 ---
-Fault slip converts mechanical energy into heat and damage within the fault zone.
+Video of frictional melting in the lab.
 ```
 
 👉 Much of earthquake energy may be dissipated locally on the fault.
@@ -576,11 +614,12 @@ Interpretation:
 - low $\sigma_a$ → more energy dissipated near the fault
 
 Typical apparent stresses are:
+
 $$
 \sim 0.1 - 10 \text{ MPa}
 $$
 
-👉 Apparent stress measures how efficiently earthquakes radiate seismic energy.
+👉 Apparent stress measures how efficiently earthquakes convert released elastic energy into seismic waves.
 
 ---
 
@@ -599,7 +638,7 @@ Examples:
 - slow slip events dissipate energy with little seismic radiation
 - supershear ruptures may radiate energy very efficiently
 
-👉 The partitioning of earthquake energy provides important clues about fault mechanics.
+👉 The partitioning of earthquake energy provides important clues about fault mechanics and rupture dynamics.
 
 ---
 
@@ -778,15 +817,13 @@ This produces:
 Magnitude differences are often physically meaningful.
 
 Examples:
+
 - large earthquakes: $m_b < M_w$
 - deep earthquakes: $M_s$ biased low
 - explosions: unusually high $m_b$
 
----
+Differences between magnitude scales matter for:
 
-## Why This Matters
-
-Magnitude scales are used for:
 - earthquake early warning
 - seismic hazard assessment
 - tsunami warning
