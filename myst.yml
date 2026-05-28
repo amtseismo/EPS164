@@ -65,6 +65,7 @@ project:
     - title: Week 9 — Earthquakes and Source Theory
       children:
         - file: lectures/09_sources_continued
+        - file: notebooks/09_source_theory_practice
 
 #
 #    # --- Optional ---
