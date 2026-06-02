@@ -66,6 +66,10 @@ project:
       children:
         - file: lectures/09_sources_continued
         - file: notebooks/09_source_theory_practice
+		
+    - title: Week 10 — Seismological Frontiers
+      children:
+        - file: lectures/10_frontiers
 
 #
 #    # --- Optional ---
